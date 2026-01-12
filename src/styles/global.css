@@ -263,6 +263,7 @@ p{ margin:0; color:var(--text); }
 .site-main{
   padding-top:var(--s4);
   padding-bottom:var(--s5);
+  min-height:60vh;
 }
 
 .site-footer{
