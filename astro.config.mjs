@@ -1,11 +1,18 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
+import remarkBreaks from "remark-breaks";
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
+  site: "https://oui.nom.digital",
+
+  integrations: [sitemap()],
+
+  markdown: {
+    remarkPlugins: [remarkBreaks],
+  },
+
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
