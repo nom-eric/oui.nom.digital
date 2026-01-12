@@ -17,21 +17,28 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
       <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une méthode.</p>
       <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une promesse.</p>
     </div>
-    
-      <p class="intro-axis intro-axis--indent mailto-links">
+
+    <!-- Corps: Ø neutre (pas bleu) -->
+    <div class="copy">
+      <p class="intro-axis intro-axis--indent mailto-links axis">
         <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> existe pour un seul moment : celui où un nouvel espace s’ouvre et où il faut décider.
-      <br />
+        <br />
         Décider d’entrer. Décider de parler. Décider de relier son nom à quelque chose. Décider de continuer.
-      <br />
+        <br />
         <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne sert à rien tant qu’aucune action n’est envisagée.
         Il n’aide pas à comprendre. Il n’aide pas à se protéger.
-       <br /> 
+        <br />
         Il oblige à formuler un oui clair, ou à assumer un nØn net.
       </p>
-      <p class="hard"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.</p>
+
+      <p class="hard">
+        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.
+      </p>
+    </div>
 
     <div class="gates" aria-label="Accès">
-      <a class="button" href="/articles">Lire les articles</a>
+      <!-- CTA secondaire (chuchote) -->
+      <a class="button secondary" href="/articles">Lire les articles</a>
       <a class="button ghost" href="/pdf">Le PDF</a>
     </div>
 
@@ -45,51 +52,70 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
 
   <style>
     .title { margin: 0 0 1rem; }
-
-    /* Si BrandMark a un display inline, ça suffit. Sinon, tu peux forcer : */
     .title :global(.brandmark) { font-size: inherit; }
 
-    .lede p { margin: 0; font-weight: 650; }
-    .core { margin-top: 1rem; max-width: 70ch; }
+    /* 1) Rythme: plus d'air avant le paragraphe long */
+    .axis { margin-top: 2rem; } /* équivalent d’un mt-8 */
+
     .hard { margin-top: 1rem; font-weight: 650; }
 
-    .gates {
+    .gates{
       margin-top: 1.25rem;
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
     }
-    
-    .button {
-     display: inline-block;
-     padding: .65rem .95rem;
-     border-radius: 999px;
 
-      background: #ffffff;
-      border: 1px solid var(--line-strong);
-     color: var(--text);
+    /* 2) CTA: “chuchote”, donc style secondaire */
+    .button{
+      display:inline-block;
+      padding:.65rem .95rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      transition: background 120ms ease, border-color 120ms ease, color 120ms ease, opacity 120ms ease;
+      border:1px solid var(--line-strong);
+    }
 
-     text-decoration: none;
-      font-weight: 700;
+    .button.secondary{
+      background: transparent;
+      color: var(--muted);
+      border-color: var(--line);
+      opacity: .95;
+    }
 
-      transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
-           }
+    .button.secondary:hover{
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--line-strong);
+      opacity: 1;
+    }
 
-    .button:hover {
-      background: var(--bg);          /* #EDEFF2 */
-     border-color: var(--line);
-     color: #000000;
-                }
-
-    .ghost {
+    .ghost{
+      background: transparent;
+      color: var(--muted);
+      border-color: var(--line);
       opacity: .9;
-            }
+    }
 
-    .exit {
-      margin-top: 1.5rem;
-      max-width: 70ch;
-      opacity: .85;
-      font-size: .98em;
+    .ghost:hover{
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--line-strong);
+      opacity: 1;
+    }
+
+    /* 3) Ø: bleu dans les titres, neutre dans le corps */
+    .copy :global(.accent-o),
+    .copy :global(.o){
+      color: inherit;
+    }
+
+    .exit{
+      margin-top:1.5rem;
+      max-width:70ch;
+      opacity:.85;
+      font-size:.98em;
     }
   </style>
 </BaseLayout>

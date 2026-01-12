@@ -186,7 +186,6 @@ p{ margin:0; color:var(--text); }
   position:sticky;
   top:0;
   z-index:40;
-
   backdrop-filter:blur(10px);
   background:var(--surface);
   border-bottom:1px solid var(--line);
