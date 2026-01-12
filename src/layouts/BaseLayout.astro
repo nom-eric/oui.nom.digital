@@ -1,0 +1,196 @@
+---
+import "../styles/global.css";
+import BrandMark from "../components/BrandMark.astro";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  bodyClass?: string;
+  ogType?: "website" | "article";
+  fullBleed?: boolean;
+
+  // Social
+  ogImage?: string;
+  ogImageAlt?: string;
+
+  // Article OG (optionnels)
+  articlePublishedTime?: string;
+  articleModifiedTime?: string;
+  articleAuthor?: string;
+  articleSection?: string;
+  articleTags?: string[];
+};
+
+const {
+  title,
+  description,
+  canonical,
+  noindex = false,
+  bodyClass = "",
+  ogType,
+  ogImage,
+  ogImageAlt,
+
+  articlePublishedTime,
+  articleModifiedTime,
+  articleAuthor,
+  articleSection,
+  articleTags,
+
+  fullBleed = false,
+} = Astro.props as Props;
+
+const siteName = "Øui";
+const siteUrl = "https://oui.nom.digital";
+
+const currentPath = Astro.url.pathname;
+
+// SEO fallbacks
+const safeTitle = (title && title.trim()) ? title.trim() : siteName;
+const safeDescription =
+  (description && description.trim())
+    ? description.trim()
+    : "Un cadre éditorial pour décider, sans bruit.";
+
+// Title tag
+const pageTitle = safeTitle === siteName ? siteName : `${safeTitle} · ${siteName}`;
+
+// Canonical robuste
+const baseForUrls = Astro.site ?? new URL(siteUrl);
+const canonicalUrl = canonical
+  ? new URL(canonical, baseForUrls).href
+  : new URL(currentPath, baseForUrls).href;
+
+// OG
+const ogUrl = canonicalUrl;
+const resolvedOgType: "website" | "article" = ogType ?? "website";
+
+// OG image (fallback)
+const ogImageUrl = ogImage
+  ? new URL(ogImage, baseForUrls).href
+  : new URL("/og-light.png", baseForUrls).href;
+
+const ogImageAltFinal = ogImageAlt ?? safeTitle;
+
+// Nav minimale (figée)
+const nav = [
+  { href: "/", label: "Accueil" },
+  { href: "/articles", label: "Articles" },
+  { href: "/pdf", label: "Le PDF" },
+];
+
+const isActive = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(href + "/");
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Light-only (cohérent avec global.css) -->
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#EDEFF2" />
+
+    <!-- Fonts (si tu veux les héberger plus tard, easy swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;450;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;450;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS — Øui" href="/rss.xml" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={safeDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content={resolvedOgType} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:title" content={safeTitle} />
+    <meta property="og:description" content={safeDescription} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAltFinal} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={safeTitle} />
+    <meta name="twitter:description" content={safeDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- OG Article -->
+    {resolvedOgType === "article" && (
+      <>
+        {articlePublishedTime && <meta property="article:published_time" content={articlePublishedTime} />}
+        {articleModifiedTime && <meta property="article:modified_time" content={articleModifiedTime} />}
+        {articleAuthor && <meta property="article:author" content={articleAuthor} />}
+        {articleSection && <meta property="article:section" content={articleSection} />}
+        {Array.isArray(articleTags) && articleTags.map((tag) => (
+          <meta property="article:tag" content={tag} />
+        ))}
+      </>
+    )}
+
+    <!-- RSS optionnel : garde seulement si tu fournis /rss.xml -->
+    <link rel="alternate" type="application/rss+xml" title="RSS — Øui" href="/rss.xml" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+
+  <body class={bodyClass}>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Aller à l’accueil">
+          <BrandMark prefix="" suffix="ui" />
+          <span class="nav">Un cadre pour décider.</span>
+        </a>
+
+        <nav class="nav" aria-label="Navigation principale">
+          {nav
+            .filter((i) => i.href !== "/") /* on évite "Accueil" dans la nav si tu veux ultra-minimal */
+            .map((item) => (
+              <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class:list={["container", fullBleed && "full-bleed"]}>
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="small">© {new Date().getFullYear()} <BrandMark prefix="" suffix="ui" class="inline" />.</p>
+        <div class="footer-links" aria-label="Liens de pied de page">
+          <a href="/articles">Articles</a>
+          <a href="/pdf">Le PDF</a>
+          <a href="/legal">Mentions légales</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

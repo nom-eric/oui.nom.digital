@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandMark from "../components/BrandMark.astro";
+
+const title = "Øui";
+const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, ni promesse.";
+---
+
+<BaseLayout title={title} description={description} bodyClass="home">
+  <section class="hero">
+    <h1 class="title">
+      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
+    </h1>
+
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas un guide.</p>
+      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une méthode.</p>
+      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une promesse.</p>
+    </div>
+    
+      <p class="intro-axis intro-axis--indent mailto-links">
+        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> existe pour un seul moment : celui où un nouvel espace s’ouvre et où il faut décider.
+      <br />
+        Décider d’entrer. Décider de parler. Décider de relier son nom à quelque chose. Décider de continuer.
+      <br />
+        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne sert à rien tant qu’aucune action n’est envisagée.
+        Il n’aide pas à comprendre. Il n’aide pas à se protéger.
+       <br /> 
+        Il oblige à formuler un oui clair, ou à assumer un nØn net.
+      </p>
+      <p class="hard"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.</p>
+
+    <div class="gates" aria-label="Accès">
+      <a class="button" href="/articles">Lire les articles</a>
+      <a class="button ghost" href="/pdf">Le PDF</a>
+    </div>
+
+    <div class="exit">
+      <p>
+        Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
+        si vous voulez agir sans risque, fermez ce document.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .title { margin: 0 0 1rem; }
+
+    /* Si BrandMark a un display inline, ça suffit. Sinon, tu peux forcer : */
+    .title :global(.brandmark) { font-size: inherit; }
+
+    .lede p { margin: 0; font-weight: 650; }
+    .core { margin-top: 1rem; max-width: 70ch; }
+    .hard { margin-top: 1rem; font-weight: 650; }
+
+    .gates {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    
+    .button {
+     display: inline-block;
+     padding: .65rem .95rem;
+     border-radius: 999px;
+
+      background: #ffffff;
+      border: 1px solid var(--line-strong);
+     color: var(--text);
+
+     text-decoration: none;
+      font-weight: 700;
+
+      transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+           }
+
+    .button:hover {
+      background: var(--bg);          /* #EDEFF2 */
+     border-color: var(--line);
+     color: #000000;
+                }
+
+    .ghost {
+      opacity: .9;
+            }
+
+    .exit {
+      margin-top: 1.5rem;
+      max-width: 70ch;
+      opacity: .85;
+      font-size: .98em;
+    }
+  </style>
+</BaseLayout>

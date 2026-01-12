@@ -1,0 +1,29 @@
+---
+// src/components/BrandMark.astro (UNIFIÉ)
+
+type Props = {
+  prefix?: string;                 // "n" ou "" etc
+  suffix?: string;                 // "m" ou "ui"
+  as?: keyof HTMLElementTagNameMap;// span, h1...
+  class?: string;                  // classes additionnelles
+  ariaLabel?: string;
+};
+
+const {
+  prefix = "n",
+  suffix = "m",
+  as = "span",
+  class: className = "",
+  ariaLabel,
+} = Astro.props as Props;
+
+const Tag = as;
+const label = ariaLabel ?? `${prefix}Ø${suffix}`;
+
+// on force un socle stable: "brandmark logo"
+const classes = ["brandmark", "logo", className].filter(Boolean).join(" ");
+---
+
+<Tag class={classes} aria-label={label}>
+  {prefix}<span class="o">Ø</span>{suffix}
+</Tag>
