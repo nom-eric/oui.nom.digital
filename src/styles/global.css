@@ -194,9 +194,9 @@ p{ margin:0; color:var(--text); }
 .header-inner{
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   padding:10px 0;
-  gap:var(--s3);
+  gap:é4px;
 }
 
 .brand{
@@ -225,6 +225,7 @@ p{ margin:0; color:var(--text); }
   display:flex;
   align-items:center;
   gap:8px;
+  margin-left:12px;
 }
 
 .nav a{
