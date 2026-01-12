@@ -77,7 +77,7 @@
 *::after{ box-sizing:border-box; }
 
 html{
-  color-scheme:light;
+  color-scheme:dark;
   text-rendering:optimizeLegibility;
   -webkit-text-size-adjust:100%;
 }
@@ -89,32 +89,6 @@ body{
   line-height:var(--lh);
   color:var(--text);
   background:var(--bg);
-}
-
-/* Home: intro aérée et plus large */
-body.home .intro-lines,
-body.home .intro-axis{
-  max-width:84ch;
-}
-body.home .intro-lines--indent,
-body.home .intro-axis--indent{
-  margin-left:clamp(12px,2.5vw,22px);
-}
-
-body.home .hard{
-  text-align:center;
-  margin-top:2rem;
-}
-
-body.home .gates{
-  justify-content:center;
-  margin-top:1.5rem;
-}
-
-body.home .exit{
-  max-width:50ch;
-  margin:2rem auto 0;
-  text-align:center;
 }
 
 img,svg,video{ max-width:100%; height:auto; }
@@ -209,8 +183,12 @@ p{ margin:0; color:var(--text); }
    6) Header / Footer
 --------------------------------- */
 .site-header{
+  position:sticky;
+  top:0;
+  z-index:40;
+
   backdrop-filter:blur(10px);
-  background:color-mix(in srgb, var(--surface) 90%, transparent);
+  background:rgba(15,17,19,.90); /* stable: no color-mix */
   border-bottom:1px solid var(--line);
 }
 
@@ -218,7 +196,7 @@ p{ margin:0; color:var(--text); }
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:1Opx 0;
+  padding:10px 0;
   gap:var(--s3);
 }
 
@@ -399,7 +377,7 @@ p{ margin:0; color:var(--text); }
 .intro-axis{
   margin-top:var(--s2);
   max-width:72ch;
-  color:var(--text);
+  color:var(--muted);
 }
 
 .intro-lines--indent,
@@ -560,5 +538,5 @@ body.article-page .article-next a:hover{
   }
 }
 
-.mailto-links a{ color:var(--muted); }
-.mailto-links a:hover{ color:var(--text); }
+.mailto-links a{ color:var(--text); }
+.mailto-links a:hover{ color:var(--muted); }
