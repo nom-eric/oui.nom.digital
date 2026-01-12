@@ -194,9 +194,11 @@ p{ margin:0; color:var(--text); }
 .header-inner{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
-  padding:10px 0;
-  gap:é4px;
+  justify-content:space-between;
+  width:min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline:auto;
+  padding:14px 0;
+  gap:var(--s3);
 }
 
 .brand{
