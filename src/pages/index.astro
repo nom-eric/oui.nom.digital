@@ -31,23 +31,22 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
         Il oblige à formuler un oui clair, ou à assumer un nØn net.
       </p>
 
-      <p class="hard">
-        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.
-      </p>
+    <p class="hard">
+    <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.
+    </p>
+
+    <div class="gates">
+    <a class="button secondary" href="/articles">Lire les articles</a>
+    <a class="button ghost" href="/pdf">Le PDF</a>
     </div>
 
-    <div class="gates" aria-label="Accès">
-      <!-- CTA secondaire (chuchote) -->
-      <a class="button secondary" href="/articles">Lire les articles</a>
-      <a class="button ghost" href="/pdf">Le PDF</a>
+    <div class="exit signature">
+    <p>
+    Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
+    si vous voulez agir sans risque, fermez ce document.
+    </p>
     </div>
 
-    <div class="exit">
-      <p>
-        Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
-        si vous voulez agir sans risque, fermez ce document.
-      </p>
-    </div>
   </section>
 
   <style>
@@ -57,13 +56,26 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
     /* 1) Rythme: plus d'air avant le paragraphe long */
     .axis { margin-top: 2rem; } /* équivalent d’un mt-8 */
 
-    .hard { margin-top: 1rem; font-weight: 650; }
+    .hard{
+         margin-top: 1rem;
+         font-weight: 650;
+        }
 
     .gates{
-      margin-top: 1.25rem;
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
+        margin-top: 1.25rem;
+        display:flex;
+        gap:.75rem;
+        flex-wrap:wrap;
+        opacity:.9;
+    }
+    
+    
+    /* Signature finale */
+    .signature{
+        margin-top: 2.5rem;   /* le vrai “décalage” */
+        max-width: 68ch;
+        opacity: .8;
+        font-size: .95em;
     }
 
     /* 2) CTA: “chuchote”, donc style secondaire */
