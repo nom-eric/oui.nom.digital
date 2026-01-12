@@ -188,7 +188,7 @@ p{ margin:0; color:var(--text); }
   z-index:40;
 
   backdrop-filter:blur(10px);
-  background:rgba(15,17,19,.90); /* stable: no color-mix */
+  background:var(--surface);
   border-bottom:1px solid var(--line);
 }
 
@@ -263,10 +263,12 @@ p{ margin:0; color:var(--text); }
 .site-main{
   padding-top:var(--s4);
   padding-bottom:var(--s5);
+  background:var(--bg);
   min-height:60vh;
 }
 
 .site-footer{
+  background:var(--surface);
   border-top:1px solid var(--line);
   padding:var(--s5) 0;
 }
