@@ -1,4 +1,7 @@
-/pdf        /ebook     301
-/pdf/       /ebook/    301
-/articles   /textes   301
-/articles/  /textes/  301
+# Legacy -> canonical
+/articles           /textes           301
+/articles/          /textes/          301
+/articles/:splat    /textes/:splat    301
+
+/pdf                /ebook            301
+/pdf/               /ebook/           301
