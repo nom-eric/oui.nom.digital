@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Transmission · Øui";
+const description =
+  "Diffusion étudiante et transmission pédagogique. Une traversée, pas une méthode.";
+---
+
+<BaseLayout title={title} description={description} bodyClass="partnership">
+  <section class="hero">
+    <h1 class="title">
+      Transmission
+      <span class="muted">·</span>
+      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
+    </h1>
+
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line">Un texte d’observation.</p>
+      <p class="intro-line">Une traversée.</p>
+      <p class="intro-line">Une proposition de transmission.</p>
+    </div>
+
+    <p class="intro-axis intro-axis--indent">
+Cette page s’adresse aux enseignants, aux associations étudiantes, aux bibliothèques et aux structures culturelles.<br />
+Elle n’est pas un espace de mise en avant.<br />
+Elle existe pour clarifier une démarche de transmission.
+    </p>
+
+    <div class="copy stack">
+      <p class="axis">
+        Øui n’est pas un guide.
+        <br />
+        Il ne propose pas de solutions. Il ne défend pas de positions.
+        <br />
+        Il décrit des seuils, des glissements discrets, et la manière dont une présence devient
+        structure.
+      </p>
+
+      <h2>Pourquoi une diffusion étudiante</h2>
+      <p>
+        Certaines traversées méritent d’être accessibles à celles et ceux qui construisent encore
+        leur regard. Les étudiants vivent au cœur des transformations que décrit Øui :
+        présence, trace, association, cadence, retrait. Souvent sans avoir le temps de les observer.
+      </p>
+      <p>
+        Mettre Øui à disposition, ce n’est pas “offrir un contenu”.
+        C’est ouvrir un espace de recul. Sans injonction. Sans morale. Sans promesse.
+      </p>
+
+      <h2>Ce que propose <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /></h2>
+      <ul class="list">
+        <li class="moments">Diffusion gratuite pour les publics concernés, sur demande, via un accès dédié.</li>
+        <li class="moments">Support de discussion et de lecture collective.</li>
+        <li class="moments">Possibilité d’échanges, interventions, débats, formats légers et adaptables.</li>
+      </ul>
+
+      <h2>Ce que <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas</h2>
+      <p>
+        Øui n’est pas une méthode, ni un programme, ni un outil d’optimisation.
+        Il n’enseigne pas quoi faire. Il observe ce qui se passe.
+      </p>
+
+      <h2>Modalités</h2>
+      <ul class="list">
+        <li class="moments">Sur demande, sans contrepartie.</li>
+        <li class="moments">Sans obligation de communication.</li>
+        <li class="moments">Sans récupération institutionnelle.</li>
+      </ul>
+
+      <h2>Entrer en contact</h2>
+      <p class="mailto">
+        Un message simple suffit. Une réponse humaine, sans automatisation.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:transmission@oui.nom.digital?subject=Transmission%20%C3%98ui%20%E2%80%94%20diffusion%20%C3%A9tudiante">
+          Écrire
+        </a>
+        <a class="btn" href="/">
+          Retour
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="next">
+  <div class="copy stack">
+  <h2>
+    <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> observe des seuils.
+    </h2>
+    <p>
+    Il ne montre pas les surfaces.<br />
+    Ce qui vient après relève d’un autre regard.<br />
+    Un regard tourné vers les empreintes visibles,
+    les configurations observables,
+    les formes que prennent nos présences dans l’espace numérique.
+   </p>
+    <h2>Cette lecture s’appelle <BrandMark prefix="n" suffix="m" as="span" ariaLabel="nØm" />.</h2>
+
+  <p class="next-link">
+    <a href="https://nom.digital" target="_blank" rel="noopener noreferrer">
+      <BrandMark prefix="n" suffix="m" as="span" ariaLabel="nØm" /> · Observer les empreintes visibles
+    </a>
+  </p>
+  </div
+</section>
+
+  <style>
+    .title { margin: 0 0 1rem; }
+    .title :global(.brandmark) { font-size: inherit; }
+    .muted { color: var(--muted); font-weight: 650; padding: 0 .25rem; }
+
+    .copy { margin-top: 2rem; max-width: 72ch; }
+    .axis { margin-bottom: 1.25rem; }
+
+    .mailto { margin-top: .25rem; color: var(--muted); }
+
+    .note { margin-top: 1.5rem; opacity: .85; }
+
+    /* Ø bleu uniquement via BrandMark, mais on évite d’en teinter le corps */
+    .copy :global(.accent-o) { color: inherit; }
+
+    /* Petit style "kbd" optionnel, discret */
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .9em;
+      padding: 0 .4em;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .moments{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid rgba(0,0,0,.0);
+    }
+    .moments li{
+      padding: .35rem 0;
+      border-bottom: 1px solid rgba(0,0,0,.);
+    }
+  </style>
+  
+  <script>
+  document.querySelectorAll('a[href^="/"]').forEach(link => {
+    if (!link.href.startsWith("mailto:")) {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+</script>
+
+</BaseLayout>

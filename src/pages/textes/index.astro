@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandMark from "../../components/BrandMark.astro";
+import { getCollection } from "astro:content";
+
+const title = "Textes";
+const description = "Textes latéraux. Incomplets par design.";
+
+const posts = (await getCollection("articles"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => {
+  const ad = (a.data.date ?? a.data.pubDate) ? +new Date(a.data.date ?? a.data.pubDate) : 0;
+  const bd = (b.data.date ?? b.data.pubDate) ? +new Date(b.data.date ?? b.data.pubDate) : 0;
+ 
+  return ad - bd; // ancien -> récent
+  });
+
+const formatDate = (d) =>
+  d?.toLocaleDateString?.("fr-FR", { year: "numeric", month: "2-digit", day: "2-digit" }) ?? "";
+  
+---
+
+<BaseLayout title={title} description={description} bodyClass="articles-index">
+  <header class="head">
+    <h1 class="title">
+      {title}
+      <span class="muted">·</span>
+      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
+    </h1>
+
+    <div class="intro-lines intro-lines--indent">
+        <p class="intro-line">Textes latéraux.</p>
+        <p class="intro-line">Incomplets par design.</p>
+        <p class="fine">Chaque texte isole un seul seuil. Aucun ne reconstitue le cadre.</p>
+        <p class="fine">Lire n’engage rien. Agir, si.</p>
+    </div>
+   
+  </header>
+
+  {posts.length === 0 ? (
+    <p class="empty">Rien n’apparaît encore.<br />
+    Mais la structure, elle, est déjà là.
+    </p>
+  ) : (
+    <ol class="list" aria-label="Liste des textes">
+      {posts.map((post) => {
+        const d = post.data.pubDate ?? post.data.date; // compat
+        const teaser = post.data.teaser ?? post.data.description; // affichage éditorial
+        return (
+          <li>
+            <a class="item" href={`/textes/${post.slug}`}>
+              <div class="item-main">
+                <span class="item-title">{post.data.title}</span>
+                {teaser && <span class="item-desc">{teaser}</span>}
+              </div>
+
+              {d && (
+                <time class="item-meta" datetime={d.toISOString()}>
+                  {formatDate(d)}
+                </time>
+              )}
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+  )}
+
+  <style>
+    .head { margin-bottom: 1.25rem; }
+    .head h1 { margin: 0 0 .75rem; }
+
+    .fine {
+      margin-top: .45rem !important;
+      font-weight: 450 !important;
+      opacity: .8;
+    }
+
+    .empty { opacity: .75; }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid rgba(0,0,0,.12);
+    }
+    .list li { border-bottom: 1px solid rgba(0,0,0,.12); }
+
+    .item {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: .9rem 0;
+      text-decoration: none;
+    }
+
+    .item-main{
+      display:flex;
+      flex-direction:column;
+      gap:.2rem;
+      min-width:0;
+    }
+
+    .item-title { font-weight: 650; }
+
+    .item-desc {
+      font-size: .95em;
+      opacity: .75;
+      font-weight: 450;
+      max-width: 70ch;
+    }
+
+    .item-meta {
+      opacity: .7;
+      font-size: .95em;
+      white-space: nowrap;
+    }
+  </style>
+</BaseLayout>

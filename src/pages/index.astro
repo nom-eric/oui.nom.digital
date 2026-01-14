@@ -6,128 +6,119 @@ const title = "Øui";
 const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, ni promesse.";
 ---
 
-<BaseLayout title={title} description={description} bodyClass="home">
+<BaseLayout title={title} description={description}>
   <section class="hero">
     <h1 class="title">
       <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
     </h1>
 
     <div class="intro-lines intro-lines--indent">
-      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas un guide.</p>
-      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une méthode.</p>
-      <p class="intro-line"><BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> n’est pas une promesse.</p>
+      <p class="intro-line">Øui n’est pas un guide.</p>
+      <p class="intro-line">Øui n’est pas une méthode.</p>
+      <p class="intro-line">Øui n’est pas une promesse.</p>
     </div>
-
-    <!-- Corps: Ø neutre (pas bleu) -->
+   </section>
+   
+   <section class="intro">
     <div class="copy">
-      <p class="intro-axis intro-axis--indent mailto-links axis">
-        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> existe pour un seul moment : celui où un nouvel espace s’ouvre et où il faut décider.
+      <p class="axis">
+        Øui existe pour un seul moment : celui où un nouvel espace s’ouvre et où il faut décider.
         <br />
-        Décider d’entrer. Décider de parler. Décider de relier son nom à quelque chose. Décider de continuer.
-        <br />
-        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne sert à rien tant qu’aucune action n’est envisagée.
+        Décider d’entrer. Décider de parler. Décider de lier son nom à quelque chose. Décider de continuer.
+        <br /><br />
+        Øui ne sert à rien tant qu’aucune action n’est envisagée.
         Il n’aide pas à comprendre. Il n’aide pas à se protéger.
         <br />
         Il oblige à formuler un oui clair, ou à assumer un nØn net.
       </p>
 
-    <p class="hard">
-    <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.
-    </p>
+      <p>
+        Øui est volontairement incomplet.
+        Son rôle n’est pas de couvrir tous les cas, mais de rendre visibles les seuils.
+        <br />
+        Un cadre n’existe que lorsqu’il est débordé.
+        Ce qui compte n’est pas de rester dedans, mais de savoir quand, pourquoi, et à quel prix on en sort.
+      </p>
+
+      <p>
+        Øui est accessible parce qu’il ne délègue rien.
+        Il engage une responsabilité pleine.
+      </p>
+
+      <p class="hard">
+        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences
+        </p>
+    </div>
 
     <div class="gates">
-    <a class="button secondary" href="/articles">Lire les articles</a>
-    <a class="button ghost" href="/pdf">Le PDF</a>
+      <a class="button secondary" href="/articles">Lire les textes</a>
+      <a class="button ghost" href="/ebook">Ebook</a>
     </div>
 
     <div class="exit signature">
-    <p>
-    Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
-    si vous voulez agir sans risque, fermez ce document.
-    </p>
+      <p>
+        Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
+        si vous voulez agir sans risque, fermez ce document.
+      </p>
     </div>
-
   </section>
 
   <style>
     .title { margin: 0 0 1rem; }
     .title :global(.brandmark) { font-size: inherit; }
 
-    /* 1) Rythme: plus d'air avant le paragraphe long */
-    .axis { margin-top: 2rem; } /* équivalent d’un mt-8 */
+    .copy { margin-top: 2rem; max-width: 70ch; }
+    .axis { margin-bottom: 1.5rem; }
 
-    .hard{
-         margin-top: 1rem;
-         font-weight: 650;
-        }
-
-    .gates{
-        margin-top: 1.25rem;
-        display:flex;
-        gap:.75rem;
-        flex-wrap:wrap;
-        opacity:.9;
-    }
-    
-    
-    /* Signature finale */
-    .signature{
-        margin-top: 2.5rem;   /* le vrai “décalage” */
-        max-width: 68ch;
-        opacity: .8;
-        font-size: .95em;
+    .hard {
+      margin-top: 1rem;
+      font-weight: 700;
     }
 
-    /* 2) CTA: “chuchote”, donc style secondaire */
-    .button{
-      display:inline-block;
-      padding:.65rem .95rem;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
+    .gates {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      opacity: .9;
+    }
+
+    .button {
+      display: inline-block;
+      padding: .65rem .95rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--line-strong);
       transition: background 120ms ease, border-color 120ms ease, color 120ms ease, opacity 120ms ease;
-      border:1px solid var(--line-strong);
     }
 
-    .button.secondary{
+    .button.secondary {
       background: transparent;
       color: var(--muted);
       border-color: var(--line);
-      opacity: .95;
     }
 
-    .button.secondary:hover{
+    .button.secondary:hover,
+    .ghost:hover {
       background: var(--hover);
       color: var(--text);
       border-color: var(--line-strong);
-      opacity: 1;
     }
 
-    .ghost{
+    .ghost {
       background: transparent;
       color: var(--muted);
       border-color: var(--line);
       opacity: .9;
     }
 
-    .ghost:hover{
-      background: var(--hover);
-      color: var(--text);
-      border-color: var(--line-strong);
-      opacity: 1;
+    .signature {
+      margin-top: 2.5rem;
+      max-width: 68ch;
+      opacity: .8;
+      font-size: .95em;
     }
 
-    /* 3) Ø: bleu dans les titres, neutre dans le corps */
-    .copy :global(.accent-o),
-    .copy :global(.o){
-      color: inherit;
-    }
-
-    .exit{
-      margin-top:1.5rem;
-      max-width:70ch;
-      opacity:.85;
-      font-size:.98em;
-    }
   </style>
 </BaseLayout>

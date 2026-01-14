@@ -77,8 +77,8 @@ const ogImageAltFinal = ogImageAlt ?? safeTitle;
 // Nav minimale (figée)
 const nav = [
   { href: "/", label: "Accueil" },
-  { href: "/articles", label: "Articles" },
-  { href: "/pdf", label: "Le PDF" },
+  { href: "/articles", label: "Textes" },
+  { href: "/ebook", label: "Ebook" },
 ];
 
 const isActive = (href: string) => {
@@ -181,15 +181,19 @@ const isActive = (href: string) => {
         <slot />
       </div>
     </main>
-
+    
+    <div class="rss-container">
+    <a href="/rss.xml" class="rss-link">RSS</a>
+    </div>
+    
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p class="small">© {new Date().getFullYear()} <BrandMark prefix="" suffix="ui" class="inline" />.</p>
-        <div class="footer-links" aria-label="Liens de pied de page">
-          <a href="/articles">Articles</a>
-          <a href="/pdf">Le PDF</a>
-          <a href="/legal">Mentions légales</a>
-        </div>
+        <span class="small footer-left">© {new Date().getFullYear()} <BrandMark prefix="" suffix="ui" class="inline" /></span>
+        <nav class="footer-right">
+          <a href="/articles" class="small">Textes</a>
+          <a href="/ebook" class="small">Ebook</a>
+          <a href="/legal" class="small">Mentions légales</a>
+        </nav>
       </div>
     </footer>
   </body>
