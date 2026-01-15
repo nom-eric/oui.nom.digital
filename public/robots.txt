@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /transmission/
+
+Sitemap: https://oui.nom.digital/sitemap.xml

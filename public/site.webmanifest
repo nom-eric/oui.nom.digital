@@ -1,0 +1,31 @@
+{
+  "name": "Øui",
+  "short_name": "Øui",
+  "description": "Un cadre éditorial pour décider. Ni guide, ni méthode, ni promesse.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#F7F6F4",
+  "theme_color": "#0F0F10",
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+     {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+         {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

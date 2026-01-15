@@ -6,7 +6,11 @@ import remarkBreaks from "remark-breaks";
 export default defineConfig({
   site: "https://oui.nom.digital",
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/transmission"),
+    }),
+  ],
 
   markdown: {
     remarkPlugins: [remarkBreaks],

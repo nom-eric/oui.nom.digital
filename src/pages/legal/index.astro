@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Mentions légales · Øui";
+const description = "Un cadre clair. Un espace ouvert. Rien de plus.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="container">
+    <section class="stack">
+      <h1>Mentions légales.</h1>
+
+      <div class="intro-lines intro-lines--indent">
+        <p class="intro-line">Un cadre clair.</p>
+        <p class="intro-line">Un espace ouvert.</p>
+        <p class="intro-line">Rien de plus.</p>
+      </div>
+
+      <p class="intro-axis intro-axis--indent">
+        Ce site est édité à titre indépendant.  
+        Les informations ci-dessous sont fournies pour transparence.
+      </p>
+    </section>
+
+    <section class="stack">
+      <h2>Éditeur du site</h2>
+      <p>
+        Nom du site : <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /><br/>
+        Responsable de la publication : Eric Bruet
+      </p>
+
+      <h2>Hébergement</h2>
+      <p class="mailto-links">
+        Le site est hébergé par :<br/>
+        Cloudflare, Inc.<br/>
+        101 Townsend St, San Francisco, CA 94107, USA<br/>
+        <a href="https://www.cloudflare.com">https://www.cloudflare.com</a>
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L’ensemble des contenus présents sur ce site (textes, structure, mise en forme)
+        est protégé par le droit d’auteur.<br/>
+        Toute reproduction ou utilisation sans autorisation est interdite.
+      </p>
+
+      <h2>Responsabilité</h2>
+      <p>
+        Les informations publiées sont fournies à titre informatif.<br/>
+        L’éditeur ne saurait être tenu responsable de l’usage qui en est fait.
+      </p>
+
+      <h2 id="contact">Contact</h2>
+      <p class="mailto-links">
+        Contact : <a href="mailto:oui@nom.digital?subject=Legal">oui@nom.digital</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>
