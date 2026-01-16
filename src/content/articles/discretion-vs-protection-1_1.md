@@ -3,7 +3,7 @@ title: "La discrétion n’est pas une protection"
 description: "Se faire discret ne signifie pas disparaître. La structure, elle, continue de lire."
 teaser: "La lisibilité n’a pas besoin de lumière."
 date: 2026-01-15T18:00:00.000Z
-draft: true
+draft: false
 tags: [discrétion, lisibilité, structure, traces]
 
 ---

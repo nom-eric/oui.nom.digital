@@ -8,7 +8,13 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => !page.includes("/transmission"),
+      filter: (page) => {
+        // Exclut les pages qui contiennent "/textes/" ET sont en draft
+        if (page.includes("/textes/")) {
+          return !page.includes("draft=true");
+        }
+        return true;
+      },
     }),
   ],
 
