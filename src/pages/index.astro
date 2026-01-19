@@ -7,11 +7,17 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="hero">
-    <h1 class="title">
+  <section class="hero stack article">
+  <header>
+    <h1>
       <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
     </h1>
-
+    <p class="article__desc">
+  Øui existe pour un seul moment :</br>celui où un nouvel espace s’ouvre et où il faut décider.
+    </p>
+   </section>
+   
+   <section class="hero stack">
     <div class="intro-lines intro-lines--indent">
       <p class="intro-line">Øui n’est pas un guide.</p>
       <p class="intro-line">Øui n’est pas une méthode.</p>
@@ -22,9 +28,7 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
    <section class="intro">
     <div class="copy">
       <p class="axis">
-        Øui existe pour un seul moment : celui où un nouvel espace s’ouvre et où il faut décider.
-        <br />
-        Décider d’entrer. Décider de parler. Décider de lier son nom à quelque chose. Décider de continuer.
+        Décider d’entrer. Décider de parler. Décider de lier son nom à quelque chose.<br /> Décider de continuer.
         <br /><br />
         Øui ne sert à rien tant qu’aucune action n’est envisagée.
         Il n’aide pas à comprendre. Il n’aide pas à se protéger.
@@ -51,8 +55,8 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
     </div>
 
     <div class="gates">
-      <a class="button secondary" href="/textes">Lire les textes</a>
-      <a class="button ghost" href="/ebook">Ebook</a>
+      <a class="btn" href="/textes">Lire les textes</a>
+      <a class="btn" href="/ebook">Ebook</a>
     </div>
 
     <div class="exit signature">
@@ -81,29 +85,6 @@ const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, n
       gap: .75rem;
       flex-wrap: wrap;
       opacity: .9;
-    }
-
-    .button {
-      display: inline-block;
-      padding: .65rem .95rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid var(--line-strong);
-      transition: background 120ms ease, border-color 120ms ease, color 120ms ease, opacity 120ms ease;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--muted);
-      border-color: var(--line);
-    }
-
-    .button.secondary:hover,
-    .ghost:hover {
-      background: var(--hover);
-      color: var(--text);
-      border-color: var(--line-strong);
     }
 
     .ghost {

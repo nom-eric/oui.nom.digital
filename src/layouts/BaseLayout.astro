@@ -74,10 +74,16 @@ const ogImageUrl = ogImage
 
 const ogImageAltFinal = ogImageAlt ?? safeTitle;
 
-// Nav minimale (figée)
+// Nav minimale (figée) + piliers
 const nav = [
   { href: "/", label: "Accueil" },
   { href: "/textes", label: "Textes" },
+
+  // Piliers
+  { href: "/identite-numerique", label: "Identité" },
+  { href: "/empreinte-numerique", label: "Empreinte" },
+  { href: "/fatigue-numerique", label: "Fatigue" },
+
   { href: "/ebook", label: "Ebook" },
 ];
 
@@ -105,12 +111,13 @@ const isActive = (href: string) => {
       rel="stylesheet"
     />
 
+    <!-- RSS (une seule fois, merci) -->
     <link rel="alternate" type="application/rss+xml" title="RSS — Øui" href="/rss.xml" />
 
     <title>{pageTitle}</title>
     <meta name="description" content={safeDescription} />
     <link rel="canonical" href={canonicalUrl} />
-    
+
     <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
 
     <!-- Open Graph / Social -->
@@ -145,9 +152,6 @@ const isActive = (href: string) => {
       </>
     )}
 
-    <!-- RSS optionnel : garde seulement si tu fournis /rss.xml -->
-    <link rel="alternate" type="application/rss+xml" title="RSS — Øui" href="/rss.xml" />
-
     <!-- Favicons -->
     <link rel="icon" sizes="any" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -157,7 +161,7 @@ const isActive = (href: string) => {
     <slot name="head" />
   </head>
 
-  <body class={bodyClass}>
+  <body class="article-page">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="Aller à l’accueil">
@@ -167,7 +171,7 @@ const isActive = (href: string) => {
 
         <nav class="nav" aria-label="Navigation principale">
           {nav
-            .filter((i) => i.href !== "/") /* on évite "Accueil" dans la nav si tu veux ultra-minimal */
+            .filter((i) => i.href !== "/")
             .map((item) => (
               <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
                 {item.label}
@@ -182,16 +186,19 @@ const isActive = (href: string) => {
         <slot />
       </div>
     </main>
-    
+
     <div class="rss-container">
-    <a href="/rss.xml" class="rss-link">RSS</a>
+      <a href="/rss.xml" class="rss-link">RSS</a>
     </div>
-    
+
     <footer class="site-footer">
       <div class="container footer-inner">
         <span class="small footer-left">© {new Date().getFullYear()} <BrandMark prefix="" suffix="ui" class="inline" /></span>
-        <nav class="footer-right">
+        <nav class="footer-right" aria-label="Liens de pied de page">
           <a href="/textes" class="small">Textes</a>
+          <a href="/identite-numerique" class="small">Identité</a>
+          <a href="/empreinte-numerique" class="small">Empreinte</a>
+          <a href="/fatigue-numerique" class="small">Fatigue</a>
           <a href="/ebook" class="small">Ebook</a>
           <a href="/legal" class="small">Mentions légales</a>
         </nav>

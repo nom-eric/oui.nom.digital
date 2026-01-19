@@ -9,13 +9,18 @@ const description =
 
 <BaseLayout title={title} description={description} bodyClass="partnership">
 <meta slot="head" name="robots" content="noindex, nofollow" />
-  <section class="hero">
-    <h1 class="title">
+  <section class="hero stack article">
+  <header>
+    <h1>
       Transmission
-      <span class="muted">·</span>
-      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
     </h1>
-
+    <p class="article__desc">
+    Cette page s’adresse aux enseignants, aux associations étudiantes, aux bibliothèques et aux structures culturelles.
+    </p>
+    </header>
+  </section>
+  
+  <section class="hero stack">
     <div class="intro-lines intro-lines--indent">
       <p class="intro-line">Un texte d’observation.</p>
       <p class="intro-line">Une traversée.</p>
@@ -23,7 +28,6 @@ const description =
     </div>
 
     <p class="intro-axis intro-axis--indent">
-Cette page s’adresse aux enseignants, aux associations étudiantes, aux bibliothèques et aux structures culturelles.<br />
 Elle n’est pas un espace de mise en avant.<br />
 Elle existe pour clarifier une démarche de transmission.
     </p>
@@ -75,7 +79,7 @@ Elle existe pour clarifier une démarche de transmission.
       </p>
 
       <div class="cta-row">
-        <a class="btn primary" href="mailto:transmission@oui.nom.digital?subject=Transmission%20%C3%98ui%20%E2%80%94%20diffusion%20%C3%A9tudiante">
+        <a class="btn" href="mailto:transmission@oui.nom.digital?subject=Transmission%20%C3%98ui%20%E2%80%94%20diffusion%20%C3%A9tudiante">
           Écrire
         </a>
         <a class="btn" href="/">

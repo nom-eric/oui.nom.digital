@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Empreinte numérique";
+const description =
+  "Pourquoi les traces persistent: la différence entre contenu et trace, l’illusion de la suppression, et ce qui reste lisible malgré le retrait.";
+
+const canonical = "/empreinte-numerique";
+
+const articlesEmpreinte = (await getCollection("articles", ({ data }) =>
+  !data.draft && data.silo === "empreinte"
+)).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+---
+
+<BaseLayout
+  title={`${title} · persistance et illusion de suppression`}
+  description={description}
+  canonical={canonical}
+>
+  <section class="hero stack article">
+    <header>
+      <h1>Empreinte numérique</h1>
+      <p class="article__desc">
+        Persistance et illusion de suppression.
+      </p>
+    </header>
+  </section>
+
+  <section class="hero stack">
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line">On croit publier.</p>
+      <p class="intro-line">On produit une trace.</p>
+      <p class="intro-line">Puis une mémoire.</p>
+    </div>
+
+    <p class="intro-axis intro-axis--indent">
+      Cette page ne propose pas de méthode. Elle sépare deux choses que l’on confond: ce qui est visible, et ce qui reste
+      disponible.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>La trace n’est pas le contenu</h2>
+    <p>
+      Le contenu est une surface: un texte, une image, une phrase. La trace est un résidu structurant: un lien, une date,
+      un identifiant, une relation, une capture, un cache. On peut perdre le contenu et conserver la trace.
+    </p>
+
+    <div class="card">
+      <h3>Différence simple</h3>
+      <ul class="list">
+        <li><strong>Contenu</strong>: ce qui s’affiche.</li>
+        <li><strong>Trace</strong>: ce qui permet de situer, relier, réactiver.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Supprimer n’efface pas: l’illusion de la disparition</h2>
+    <p>
+      La suppression agit souvent sur l’interface, rarement sur la totalité du système. On enlève l’objet visible, mais
+      on ne retire pas forcément ce qui l’a rendu accessible: références, index, citations, copies, historiques.
+      Disparaître est plus difficile que retirer.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Persistance distribuée: copies, caches, citations</h2>
+    <p>
+      Une empreinte n’a pas un seul lieu. Elle se disperse: moteurs, archives, captures, partages, reprises, captures
+      d’écran. La mémoire se recompose par fragments. Et chaque fragment suffit parfois à relancer une association.
+    </p>
+    <p>
+      Ce n’est pas une surveillance. C’est une propriété d’un système qui mémorise par duplication et par indexation.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Le retrait a un coût: maintenir, vérifier, corriger</h2>
+    <p>
+      Réduire son empreinte n’est pas “un geste”. C’est un travail: repérer, arbitrer, fermer, demander, attendre,
+      parfois recommencer. Et même bien fait, ce travail n’annule pas l’ancienne lisibilité: il la réduit, il la
+      déplace, il la rend moins évidente. Pas inexistante.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Textes liés</h2>
+
+    {articlesEmpreinte.length === 0 ? (
+      <p class="small">
+        Aucun texte n’est encore rattaché à ce pilier.</p>
+    ) : (
+      <ul class="list">
+        {articlesEmpreinte.map((entry) => (
+          <li>
+            <a href={`/textes/${entry.slug}/`}>{entry.data.title}</a>
+            <span class="small"> · {entry.data.teaser ?? entry.data.description}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <section class="stack">
+    <h2>Ce qui commence après</h2>
+    <p>
+      À ce stade, l’intuition ne suffit plus: “ce qui reste” dépend de lieux concrets, de résultats, de copies et de
+      relations effectives. Quand la question devient “qu’est-ce qui est visible ici et maintenant”, il faut regarder.
+    </p>
+
+    <div class="cta-row cta-row--left">
+      <a class="btn" href="/fatigue-numerique">Continuer: Fatigue numérique</a>
+      <a class="btn" href="https://nom.digital" rel="noopener noreferrer">
+        Regarder le miroir<BrandMark prefix="n" suffix="m" as="span" ariaLabel="nØm" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

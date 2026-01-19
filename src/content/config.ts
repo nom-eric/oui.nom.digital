@@ -11,6 +11,10 @@ const articles = defineCollection({
     updated: z.coerce.date().optional(),
     draft: z.boolean().default(false),
 
+    // Cartographie (pages piliers)
+    // 1 seul silo par article, sinon tu dilues tout.
+    silo: z.enum(["identite", "empreinte", "fatigue"]).optional(),
+
     // Editorial
     category: z.string().optional(),
     tags: z.array(z.string()).optional(),
@@ -22,6 +26,9 @@ const articles = defineCollection({
     // Auteur / ligne éditoriale
     author: z.string().default("Øui"),
     section: z.string().optional(),
+
+    // Optionnel mais utile (tu l’utilises dans ton md)
+    teaser: z.string().optional(),
   }),
 });
 

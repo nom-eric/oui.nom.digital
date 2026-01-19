@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Identité numérique";
+const description =
+  "De la présence à la référence: être nommé, devenir adressable, être retrouvable, puis interprété.";
+
+const canonical = "/identite-numerique";
+
+const articlesIdentite = (await getCollection("articles", ({ data }) =>
+  !data.draft && data.silo === "identite"
+)).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+---
+
+<BaseLayout
+  title={`${title} · de la présence à la référence`}
+  description={description}
+  canonical={canonical}
+>
+ <section class="hero stack article">
+  <header>
+    <h1>Identité numérique</h1>
+    <p class="article__desc">
+      De la présence à la référence.
+    </p>
+  </header> 
+  </section>
+   
+   <section class="hero stack">
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line">On croit exister.</p>
+      <p class="intro-line">On devient adressable.</p>
+      <p class="intro-line">Puis reconstituable.</p>
+    </div>
+
+    <p class="intro-axis intro-axis--indent">
+      Cette page ne donne pas de solutions. Elle rend visible un mécanisme: le moment où l’identité cesse d’être
+      relationnelle et devient structurelle.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Être nommé: le passage à l’adressabilité</h2>
+    <p>
+      Le premier seuil n’a rien de spectaculaire. Un champ rempli, une confirmation, un compte créé.
+      On ne “se montre” pas. On devient <em>référençable</em>. Le nom n’est plus une parole qui circule,
+      c’est une clé qui stabilise une entrée.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Visibilité vs retrouvabilité</h2>
+    <p>
+      La visibilité ressemble à un choix: publier, apparaître, parler. La retrouvabilité fonctionne autrement:
+      elle ne dépend pas d’une mise en scène, mais d’une architecture. On peut rester discret, absent, silencieux,
+      et pourtant rester situable dans des index, des correspondances, des restes.
+    </p>
+
+    <div class="card">
+      <h3>Différence simple</h3>
+      <ul class="list">
+        <li><strong>Visible</strong>: ce qui est montré.</li>
+        <li>
+          <strong>Retrouvable</strong>: ce qui permet d’être localisé dans un réseau de relations
+          (mots, profils, traces, proximités).
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Devenir retrouvable: être reconstitué plutôt que découvert</h2>
+    <p>
+      Personne n’a besoin de “vous chercher”. Un détail suffit: un ancien pseudo, un commentaire banal,
+      une présence périphérique sur une photo, un lien. La retrouvabilité n’est pas une lumière, c’est une
+      disponibilité. On ne vous découvre pas. On vous recompose.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Être associé: l’identité comme impression persistante</h2>
+    <p>
+      À partir du moment où une identité est retrouvable, elle devient interprétable. Une association n’a pas
+      besoin d’être juste pour produire un effet: proximité, citation, silence partagé, lien visible. Ce qui se fixe,
+      ce n’est pas une vérité. C’est une impression. Et l’impression voyage mieux que le contexte.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Textes liés</h2>
+
+    {articlesIdentite.length === 0 ? (
+      <p class="small">
+        Aucun texte n’est encore rattaché à ce pilier. Ajoute <code>silo: identite</code> dans le front-matter.
+      </p>
+    ) : (
+      <ul class="list">
+        {articlesIdentite.map((entry) => (
+          <li>
+            <a href={`/textes/${entry.slug}/`}>{entry.data.title}</a>
+            <span class="small"> · {entry.data.teaser ?? entry.data.description}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <section class="stack">
+    <h2>Ce qui commence après</h2>
+    <p>
+      Øui décrit les seuils. Mais à un moment, la question change de nature: non plus “qu’est-ce que cela fait à
+      l’intérieur”, mais “qu’est-ce qui est lisible à l’extérieur”. Quand le regard demande un miroir, il faut
+      regarder l’empreinte réelle, pas l’imaginer.
+    </p>
+
+    <div class="cta-row cta-row--left">
+      <a class="btn" href="/empreinte-numerique">Continuer: Empreinte numérique</a>
+      <a class="btn" href="https://nom.digital" rel="noopener noreferrer">
+        Regarder le miroir<BrandMark prefix="n" suffix="m" as="span" ariaLabel="nØm" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

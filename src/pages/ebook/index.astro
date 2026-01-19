@@ -7,12 +7,19 @@ const description = "Un cadre éditorial dense. À rouvrir quand il faut décide
 ---
 
 <BaseLayout title={title} description={description} bodyClass="ebook">
-  <section class="hero">
-    <h1 class="title">
+<section class="hero stack article">
+  <header>
+    <h1>
       Ebook
-      <span class="muted">·</span>
-      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
     </h1>
+    <p class="article__desc">
+        Aucun chapitre ne suffit seul.
+        L’ordre compte.
+    </p>
+   </header>
+</section>
+  
+<section class="hero stack">
 
     <div class="intro-lines intro-lines--indent">
       <p class="intro-line">Un cadre éditorial dense.</p>
@@ -35,11 +42,6 @@ const description = "Un cadre éditorial dense. À rouvrir quand il faut décide
         <li>Se retirer</li>
         <li>Voir l’impact échapper à l’intention</li>
       </ul>
-
-      <p class="order">
-        Aucun chapitre ne suffit seul.<br />
-        L’ordre compte.
-      </p>
 
       <div class="divider" aria-hidden="true"></div>
 

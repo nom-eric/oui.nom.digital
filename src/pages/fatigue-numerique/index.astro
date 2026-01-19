@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Fatigue numérique";
+const description =
+  "Quand la présence devient une attente: cadence implicite, pression sociale, silence comme signal, et coût du retrait.";
+
+const canonical = "/fatigue-numerique";
+
+const articlesFatigue = (await getCollection("articles", ({ data }) =>
+  !data.draft && data.silo === "fatigue"
+)).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+---
+
+<BaseLayout
+  title={`${title} · la pression douce de la présence`}
+  description={description}
+  canonical={canonical}
+>
+  <section class="hero stack article">
+    <header>
+      <h1>Fatigue numérique</h1>
+      <p class="article__desc">
+        La pression douce de la présence.
+      </p>
+    </header>
+  </section>
+
+  <section class="hero stack">
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line">On ne demande rien.</p>
+      <p class="intro-line">On attend pourtant.</p>
+      <p class="intro-line">Et l’on s’épuise.</p>
+    </div>
+
+    <p class="intro-axis intro-axis--indent">
+      La fatigue n’est pas seulement un excès. C’est une norme implicite: être là, répondre, suivre un rythme, rester
+      lisible.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>La cadence implicite: être présent sans y penser</h2>
+    <p>
+      La pression n’est pas toujours une injonction explicite. Elle passe par le tempo: notifications, fils continus,
+      échanges rapides, disponibilité supposée. Le corps finit par confondre “possible” et “attendu”.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Être attendu: la présence comme preuve</h2>
+    <p>
+      La présence n’est plus seulement un fait. Elle devient un signe. Répondre vite, réagir, être vu: autant
+      d’indices qui rassurent les autres, et qui finissent par structurer une attente.
+    </p>
+
+    <div class="card">
+      <h3>Différence simple</h3>
+      <ul class="list">
+        <li><strong>Présence</strong>: être là.</li>
+        <li><strong>Attente</strong>: devoir continuer d’être là pour rester lisible.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Le silence comme signal</h2>
+    <p>
+      Se taire n’est pas neutre. Le silence est interprété: retrait, désintérêt, distance, rupture, inquiétude.
+      Dans un espace où la présence est mesurée, l’absence devient un événement, même quand elle n’est qu’un repos.
+    </p>
+    <p>
+      Ce n’est pas une paranoïa. C’est un effet de système:<br />quand tout est séquentiel, toute interruption prend un sens.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Le coût du retrait: se déconnecter sans disparaître</h2>
+    <p>
+      Se retirer ne supprime pas la trace, et ne supprime pas non plus l’attente. On peut réduire la surface, mais rester
+      trouvable. On peut fermer des portes, mais laisser des repères. Le retrait devient une gestion: expliquer, compenser,
+      choisir ce que l’on laisse accessible.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>L’impact échappe à l’intention</h2>
+    <p>
+      La fatigue vient aussi de là: agir sans savoir ce que cela produit. Un geste léger peut être conservé, repris,
+      associé, déplacé. On ne contrôle ni la durée, ni le contexte, ni la lecture. L’écart entre l’intention et l’effet
+      devient une source d’usure.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2>Textes liés</h2>
+
+    {articlesFatigue.length === 0 ? (
+      <p class="small">
+        Aucun texte n’est encore rattaché à ce pilier.
+        </p>
+    ) : (
+      <ul class="list">
+        {articlesFatigue.map((entry) => (
+          <li>
+            <a href={`/textes/${entry.slug}/`}>{entry.data.title}</a>
+            <span class="small"> · {entry.data.teaser ?? entry.data.description}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <section class="stack">
+    <h2>Ce qui reste</h2>
+    <p>
+      On peut alléger sans résoudre. Réduire sans disparaître. Se taire sans redevenir neutre. La question n’est pas
+      “comment se protéger”, mais “qu’est-ce que ce rythme fait à la présence”.
+    </p>
+
+    <div class="cta-row cta-row--left">
+      <a class="btn" href="/identite-numerique">Revenir: Identité numérique</a>
+      <a class="btn" href="https://nom.digital" rel="noopener noreferrer">
+        Regarder le miroir<BrandMark prefix="n" suffix="m" as="span" ariaLabel="nØm" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

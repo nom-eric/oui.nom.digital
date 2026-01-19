@@ -5,6 +5,7 @@ teaser: "La lisibilité n’a pas besoin de lumière."
 date: 2026-01-15T18:00:00.000Z
 draft: false
 tags: [discrétion, lisibilité, structure, traces]
+silo: identite
 
 ---
 

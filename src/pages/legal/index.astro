@@ -8,9 +8,19 @@ const description = "Un cadre clair. Un espace ouvert. Rien de plus.";
 
 <BaseLayout title={title} description={description}>
   <main class="container">
-    <section class="stack">
-      <h1>Mentions légales.</h1>
-
+     <section class="hero stack article">
+     <header>
+        <h1>
+          Mentions légales
+        </h1>
+        <p class="article__desc">
+         Ce site est édité à titre indépendant.<br /> 
+        Les informations ci-dessous sont fournies pour transparence.
+        </p>
+     </header>
+     </section>
+     
+     <section class="hero stack">        
       <div class="intro-lines intro-lines--indent">
         <p class="intro-line">Un cadre clair.</p>
         <p class="intro-line">Un espace ouvert.</p>
@@ -18,8 +28,7 @@ const description = "Un cadre clair. Un espace ouvert. Rien de plus.";
       </div>
 
       <p class="intro-axis intro-axis--indent">
-        Ce site est édité à titre indépendant.  
-        Les informations ci-dessous sont fournies pour transparence.
+       
       </p>
     </section>
 

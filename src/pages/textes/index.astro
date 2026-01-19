@@ -21,21 +21,24 @@ const formatDate = (d) =>
 ---
 
 <BaseLayout title={title} description={description} bodyClass="articles-index">
-  <header class="head">
-    <h1 class="title">
-      {title}
-      <span class="muted">·</span>
-      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
+<section class="hero stack article">
+  <header>
+    <h1>
+    Textes
     </h1>
-
+    <p class="article__desc">
+    Chaque texte isole un seul seuil. Aucun ne reconstitue le cadre.
+    </p>
+    </header>
+</section>
+  
+<section class="hero stack">
     <div class="intro-lines intro-lines--indent">
         <p class="intro-line">Textes latéraux.</p>
         <p class="intro-line">Incomplets par design.</p>
-        <p class="fine">Chaque texte isole un seul seuil. Aucun ne reconstitue le cadre.</p>
-        <p class="fine">Lire n’engage rien. Agir, si.</p>
+        <p class="intro-line">Lire n’engage rien. Agir, si.</p>
     </div>
-   
-  </header>
+  </section>
 
   {posts.length === 0 ? (
     <p class="empty">Rien n’apparaît encore.<br />

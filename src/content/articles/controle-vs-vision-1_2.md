@@ -2,9 +2,10 @@
 title: "On ne contrôle pas ce que l’on ne voit pas"
 description: "La maîtrise perçue ne concerne que l’interface. La structure continue d’opérer."
 teaser: "La cohérence travaille dans l’ombre."
-date: 2026-01-19T00:00:00.000Z
-draft: true
+date: 2026-01-19T16:00:00.000Z
+draft: false
 tags: [contrôle, invisibilité, structure, lisibilité]
+silo: identite
 
 ---
 

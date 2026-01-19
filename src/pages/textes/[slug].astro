@@ -44,7 +44,7 @@ const nextEntry = idx !== -1 && idx < sorted.length - 1 ? sorted[idx + 1] : null
 ------------------------------ */
 const publishedDate = getDate(entry);
 const publishedISO = publishedDate?.toISOString?.();
-const updatedISO = entry.data.updatedDate?.toISOString?.();
+const updatedISO = entry.data.updated?.toISOString?.();
 const author = entry.data.author ?? "Eric Bruet";
 const section = entry.data.section ?? "Textes";
 const tags = entry.data.tags ?? [];
