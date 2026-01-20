@@ -56,7 +56,7 @@ const formatDate = (d) =>
         const teaser = post.data.teaser ?? post.data.description; // affichage éditorial
         return (
           <li>
-            <a class="item" href={`/textes/${post.slug}`}>
+            <a class="item" href={`/textes/${post.slug}/`}>
               <div class="item-main">
                 <span class="item-title">{post.data.title}</span>
                 {teaser && <span class="item-desc">{teaser}</span>}

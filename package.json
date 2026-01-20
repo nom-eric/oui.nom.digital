@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fix:links": "node scripts/fix-internal-links.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.14",
@@ -15,8 +16,6 @@
     "astro": "^5.16.8",
     "remark-breaks": "^4.0.0",
     "tailwindcss": "^4.1.18"
-  },
-  "scripts": {
-    "fix:links": "node scripts/fix-internal-links.mjs"
   }
 }
+

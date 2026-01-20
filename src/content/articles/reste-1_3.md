@@ -115,4 +115,4 @@ Cela en modifie seulement la surface.
 Ce qui persiste n’a plus besoin d’être montré pour exister.  
 Il lui suffit d’avoir été organisé.
 
-Et quand l’absence devient lisible, ce n’est plus seulement une question d’empreinte: c’est aussi une question de coût. Voir: [Fatigue numérique](/fatigue-numerique).
+Et quand l’absence devient lisible, ce n’est plus seulement une question d’empreinte: c’est aussi une question de coût. Voir: [Fatigue numérique](/fatigue-numerique/).

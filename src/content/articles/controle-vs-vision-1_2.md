@@ -49,7 +49,7 @@ Des relations se stabilisent.
 Des proximités se dessinent.  
 Des cohérences se renforcent.
 
-Ce qui importe n’est pas ce que vous voyez, mais ce que la structure relie. (Cadre: [Identité numérique](/identite-numerique).)
+Ce qui importe n’est pas ce que vous voyez, mais ce que la structure relie. (Cadre: [Identité numérique](/identite-numerique/).)
 
 On ne vous observe pas.  
 On vous situe.
@@ -88,7 +88,7 @@ Une configuration.
 
 Ce que vous ne cherchez pas à montrer devient malgré tout interprétable, non pas comme récit, mais comme structure.
 
-(Quand cette “configuration” se fige, on bascule dans l’empreinte: [Empreinte numérique](/empreinte-numerique), et dans le concret: [Ce qui reste quand on ne publie plus](/textes/reste-1_3/).)
+(Quand cette “configuration” se fige, on bascule dans l’empreinte: [Empreinte numérique](/empreinte-numerique/), et dans le concret: [Ce qui reste quand on ne publie plus](/textes/reste-1_3/).)
 
 ## Ce qui ne se contrôle pas
 

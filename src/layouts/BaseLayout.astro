@@ -61,18 +61,28 @@ const pageTitle = safeTitle === siteName ? siteName : `${safeTitle} · ${siteNam
 const baseForUrls = Astro.site ?? new URL(siteUrl);
 
 const withTrailingSlash = (href: string) => {
+  if (!href) return href;
+
+  // Ne pas toucher aux externes / ancres / mail / tel
+  if (/^(https?:)?\/\//.test(href) || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+    return href;
+  }
+
   const u = new URL(href, baseForUrls);
 
-  // Ne pas toucher aux fichiers (assets)
-  const hasExt = /\.[a-z0-9]+$/i.test(u.pathname);
+  // Ne pas toucher aux fichiers (rss.xml, images, etc.)
+  const hasExt = /\.[a-z0-9]{2,5}$/i.test(u.pathname);
 
   if (!hasExt && u.pathname !== "/" && !u.pathname.endsWith("/")) {
     u.pathname += "/";
   }
-  return u.href;
+
+  // Retourner un chemin relatif si on reste sur le même host
+  // (ça évite de polluer les href avec l'URL absolue)
+  return u.origin === baseForUrls.origin ? u.pathname + u.search + u.hash : u.href;
 };
 
-const canonicalUrl = withTrailingSlash(canonical ? canonical : currentPath);
+const canonicalUrl = new URL(withTrailingSlash(canonical ? canonical : currentPath), baseForUrls).href;
 
 // OG
 const ogUrl = canonicalUrl;
@@ -99,8 +109,13 @@ const nav = [
 ];
 
 const isActive = (href: string) => {
-  if (href === "/") return currentPath === "/";
-  return currentPath === href || currentPath.startsWith(href + "/");
+  const a = withTrailingSlash(href);
+  const p = withTrailingSlash(currentPath);
+
+  if (a === "/") return p === "/";
+
+  // actif si exact ou si on est dans la sous-arbo
+  return p === a || p.startsWith(a);
 };
 ---
 
@@ -183,11 +198,14 @@ const isActive = (href: string) => {
         <nav class="nav" aria-label="Navigation principale">
           {nav
             .filter((i) => i.href !== "/")
-            .map((item) => (
-              <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-                {item.label}
-              </a>
-            ))}
+            .map((item) => {
+              const href = withTrailingSlash(item.href);
+              return (
+                <a href={href} aria-current={isActive(item.href) ? "page" : undefined}>
+                  {item.label}
+                </a>
+              );
+            })}
         </nav>
       </div>
     </header>

@@ -74,6 +74,25 @@ const updatedISO = entry.data.updated?.toISOString?.();
 const author = entry.data.author ?? "Eric Bruet";
 const tags = entry.data.tags ?? [];
 const ogImage = entry.data.ogImage;
+
+const repereSlug =
+    entry.data.silo === "identite"
+    ? "identite-numerique"
+    : entry.data.silo === "empreinte"
+    ? "empreinte-numerique"
+    : entry.data.silo === "fatigue"
+    ? "fatigue-numerique"
+    : null;
+    
+const repereLabel =
+    entry.data.silo === "identite"
+    ? "l’identité numérique et la retrouvabilité"
+    : entry.data.silo === "empreinte"
+    ? "l’empreinte numérique et la persistance"
+    : entry.data.silo === "fatigue"
+    ? "la fatigue numérique et la pression sociale"
+    : null;
+    
 ---
 
 <BaseLayout
@@ -102,30 +121,15 @@ const ogImage = entry.data.ogImage;
     <article class="article__body">
       <Content />
       <div margin-top: "var(--s2)"><br /></div>
-      {entry.data.silo && (
-        <div class="card">
-          <h3>Repère</h3>
-          <p class="small">
+         {repereSlug && repereLabel && (
+         <div class="card">
+            <h3>Repère</h3>
+           <p class="small">
             Lire la page pilier sur{" "}
-            <a
-              href={`/${
-                entry.data.silo === "identite"
-                  ? "identite-numerique"
-                  : entry.data.silo === "empreinte"
-                  ? "empreinte-numerique"
-                  : "fatigue-numerique"
-              }`}
-            >
-              {entry.data.silo === "identite"
-                ? "l’identité numérique et la retrouvabilité"
-                : entry.data.silo === "empreinte"
-                ? "l’empreinte numérique et la persistance"
-                : "la fatigue numérique et la pression sociale"}
-            </a>
-            .
-          </p>
-        </div>
-      )}
+             <a href={`/${repereSlug}/`}>{repereLabel}</a>.
+           </p>
+         </div>
+        )}
 
       {nextEntry && (
         <nav class="article-next" aria-label="Texte suivant">

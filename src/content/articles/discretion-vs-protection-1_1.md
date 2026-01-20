@@ -17,7 +17,7 @@ Mais la discrétion n’est pas une disparition. Elle n’est qu’un changement
 
 ## Agir sur la surface
 
-Être discret, c’est agir sur ce que l’on montre. Pas sur ce qui rend possible d’être [retrouvé](/identite-numerique).
+Être discret, c’est agir sur ce que l’on montre. Pas sur ce qui rend possible d’être [retrouvé](/identite-numerique/).
 
 On peut se taire. Mais ce qui a déjà été nommé, relié, inscrit continue d’exister comme point d’entrée. Non pas comme souvenir, mais comme possibilité.
 
@@ -67,7 +67,7 @@ Or, la lisibilité repose moins sur l’accumulation que sur ce qui a déjà ét
 
 La discrétion protège du regard immédiat, pas de la lecture différée.
 
-Ce que vous avez cessé de montrer continue d’exister comme possibilité de [repérage](/empreinte-numerique). Pas parce que quelqu’un vous observe, mais parce que quelque chose vous situe.
+Ce que vous avez cessé de montrer continue d’exister comme possibilité de [repérage](/empreinte-numerique/). Pas parce que quelqu’un vous observe, mais parce que quelque chose vous situe.
 
 On confond souvent protection et invisibilité. Mais l’invisibilité n’existe pas dans un espace structuré.
 
