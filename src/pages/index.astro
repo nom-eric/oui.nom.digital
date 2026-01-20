@@ -2,104 +2,116 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BrandMark from "../components/BrandMark.astro";
 
-const title = "Øui";
-const description = "Un cadre éditorial pour décider. Ni guide, ni méthode, ni promesse.";
+const title = "Øui · Identité, traces et fatigue numérique";
+const description =
+  "Øui est un cadre éditorial sur l’identité numérique, les traces invisibles et la fatigue de la présence en ligne.";
+const canonical = "/";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- HERO -->
   <section class="hero stack article">
-  <header>
-    <h1>
-      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
-    </h1>
-    <p class="article__desc">
-  Øui existe pour un seul moment :</br>celui où un nouvel espace s’ouvre et où il faut décider.
-    </p>
-   </section>
-   
-   <section class="hero stack">
-    <div class="intro-lines intro-lines--indent">
-      <p class="intro-line">Øui n’est pas un guide.</p>
-      <p class="intro-line">Øui n’est pas une méthode.</p>
-      <p class="intro-line">Øui n’est pas une promesse.</p>
-    </div>
-   </section>
-   
-   <section class="intro">
-    <div class="copy">
-      <p class="axis">
-        Décider d’entrer. Décider de parler. Décider de lier son nom à quelque chose.<br /> Décider de continuer.
-        <br /><br />
-        Øui ne sert à rien tant qu’aucune action n’est envisagée.
-        Il n’aide pas à comprendre. Il n’aide pas à se protéger.
+    <header>
+      <h1>
+        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" />
+      </h1>
+      <p class="article__desc">
+        Identité, traces, fatigue.
         <br />
-        Il oblige à formuler un oui clair, ou à assumer un nØn net.
+        Trois seuils. Une responsabilité.
       </p>
-
-      <p>
-        Øui est volontairement incomplet.
-        Son rôle n’est pas de couvrir tous les cas, mais de rendre visibles les seuils.
-        <br />
-        Un cadre n’existe que lorsqu’il est débordé.
-        Ce qui compte n’est pas de rester dedans, mais de savoir quand, pourquoi, et à quel prix on en sort.
-      </p>
-
-      <p>
-        Øui est accessible parce qu’il ne délègue rien.
-        Il engage une responsabilité pleine.
-      </p>
-
-      <p class="hard">
-        <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences
-        </p>
-    </div>
-
-    <div class="gates">
-      <a class="btn" href="/textes">Lire les textes</a>
-      <a class="btn" href="/ebook">Ebook</a>
-    </div>
-
-    <div class="exit signature">
-      <p>
-        Si vous cherchez à être rassuré, si vous attendez une validation extérieure,
-        si vous voulez agir sans risque, fermez ce document.
-      </p>
-    </div>
+    </header>
   </section>
 
-  <style>
-    .title { margin: 0 0 1rem; }
-    .title :global(.brandmark) { font-size: inherit; }
+  <!-- MANIFESTE COURT -->
+  <section class="hero stack">
+    <div class="intro-lines intro-lines--indent">
+      <p class="intro-line">Øui n’explique pas.</p>
+      <p class="intro-line">Øui ne rassure pas.</p>
+      <p class="intro-line">Øui engage.</p>
+    </div>
 
-    .copy { margin-top: 2rem; max-width: 70ch; }
-    .axis { margin-bottom: 1.5rem; }
+<p class="intro-axis intro-axis--indent">
+  Chaque présence laisse une trace, chaque trace crée une lecture, et chaque lecture produit une attente.
+  Øui ne propose pas de solutions. Il rend visibles les seuils que l’on franchit sans y penser.
+</p>
 
-    .hard {
-      margin-top: 1rem;
-      font-weight: 700;
-    }
 
-    .gates {
-      margin-top: 1.25rem;
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-      opacity: .9;
-    }
+  </section>
 
-    .ghost {
-      background: transparent;
-      color: var(--muted);
-      border-color: var(--line);
-      opacity: .9;
-    }
+  <!-- ZONE 1 -->
+<section class="stack">
+  <h2>Trois piliers</h2>
 
-    .signature {
-      margin-top: 2.5rem;
-      max-width: 68ch;
-      opacity: .8;
-      font-size: .95em;
-    }
+  <p class="axis">
+    Trois zones structurent silencieusement nos gestes en ligne.
+    <br />
+    Elles ne sont pas techniques. Elles sont existentielles.
+  </p>
 
-  </style>
+  <div class="card">
+    <h3>Champs de lecture</h3>
+
+    <ul class="list">
+      <li>
+        <strong>
+          <a href="/identite-numerique">Identité numérique</a>
+        </strong>
+        : être nommé, devenir adressable, être interprété.
+      </li>
+      <li>
+        <strong>
+          <a href="/empreinte-numerique">Empreinte numérique</a>
+        </strong>
+        : ce qui reste quand le contenu disparaît.
+      </li>
+      <li>
+        <strong>
+          <a href="/fatigue-numerique">Fatigue numérique</a>
+        </strong>
+        : quand la présence devient une norme implicite.
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- ZONE 2 -->
+  <section class="stack">
+    <h2>Cadre</h2>
+
+    <p>
+      Øui n’est pas un guide.
+      <br />
+      Øui n’est pas une méthode.
+      <br />
+      Øui n’est pas un outil de protection.
+    </p>
+
+    <p>
+      Øui est un cadre de lecture pour celles et ceux qui doivent décider
+      comment, quand, et à quel prix ils engagent leur présence.
+    </p>
+
+    <p class="hard">
+      <BrandMark prefix="" suffix="ui" as="span" ariaLabel="Øui" /> ne protège pas des conséquences.
+    </p>
+
+    <!-- AIR AUTOUR DES CTA -->
+    <div style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+      <div class="cta-row cta-row--left">
+        <a class="btn" href="/textes">Lire les textes</a>
+        <a class="btn" href="/ebook">Ebook</a>
+      </div>
+    </div>
+
+<section class="stack" style="margin: 4 rem 0;">
+  <p class="exit small hard" style="text-align: center; line-height: 1.4; opacity: .9;">
+    Si vous cherchez à être rassuré, si vous attendez une validation extérieure, si vous voulez agir sans risque :<br/>
+    Fermez cette page.
+  </p>
+</section>
+  </section>
+
 </BaseLayout>

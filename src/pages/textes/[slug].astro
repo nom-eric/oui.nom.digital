@@ -15,7 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 /* -----------------------------
-   Helpers (compat date/pubDate)
+   Date helpers (robustes)
 ------------------------------ */
 const getDate = (e) => e.data.date ?? e.data.pubDate;
 const getTime = (e) => {
@@ -24,7 +24,7 @@ const getTime = (e) => {
 };
 
 /* -----------------------------
-   Next: published only, chronological
+   Next article (chronologique)
 ------------------------------ */
 const all = await getCollection("articles");
 const published = all.filter((e) => !e.data.draft);
@@ -40,21 +40,39 @@ const idx = sorted.findIndex((e) => e.slug === entry.slug);
 const nextEntry = idx !== -1 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
 
 /* -----------------------------
-   SEO / meta (BaseLayout props)
+   SEO logic (clean + lisible)
 ------------------------------ */
+const siloLabel = {
+  identite: "Identité numérique",
+  empreinte: "Empreinte numérique",
+  fatigue: "Fatigue numérique",
+};
+
+const silo = entry.data.silo;
+const section = siloLabel[silo] ?? "Øui";
+
+const seoTitle = `${entry.data.title} · ${section}`;
+
+const seoDescription =
+  entry.data.teaser ??
+  entry.data.description ??
+  "Un texte sur l’identité, les traces et la présence numérique.";
+
+const canonical = new URL(`/textes/${entry.slug}/`, Astro.site).href;
+
+/* OG / Article meta */
 const publishedDate = getDate(entry);
 const publishedISO = publishedDate?.toISOString?.();
 const updatedISO = entry.data.updated?.toISOString?.();
 const author = entry.data.author ?? "Eric Bruet";
-const section = entry.data.section ?? "Textes";
 const tags = entry.data.tags ?? [];
 const ogImage = entry.data.ogImage;
 ---
 
 <BaseLayout
-  title={entry.data.title}
-  description={entry.data.description}
-  canonical={new URL(`/textes/${entry.slug}/`, Astro.site).href}
+  title={seoTitle}
+  description={seoDescription}
+  canonical={canonical}
   ogType="article"
   ogImage={ogImage}
   ogImageAlt={entry.data.title}
@@ -76,16 +94,34 @@ const ogImage = entry.data.ogImage;
 
     <article class="article__body">
       <Content />
-        {nextEntry && (
-            <nav class="article-next" aria-label="Texte suivant">
-            <a href={`/textes/${nextEntry.slug}/`}>
+    {entry.data.silo && (
+        <div class="card" style="margin-top: var(--s5);">
+         <h3>Repère</h3>
+         <p class="small">
+             Lire la page pilier sur{" "}
+             <a href={`/${entry.data.silo === "identite" ? "identite-numerique" : entry.data.silo === "empreinte" ? "empreinte-numerique" : "fatigue-numerique"}`}>
+            {entry.data.silo === "identite"
+             ? "l’identité numérique et la retrouvabilité"
+             : entry.data.silo === "empreinte"
+             ? "l’empreinte numérique et la persistance"
+             : "la fatigue numérique et la pression sociale"}
+            </a>.
+         </p>
+        </div>
+        )}
+
+      {nextEntry && (
+        <nav class="article-next" aria-label="Texte suivant">
+          <a href={`/textes/${nextEntry.slug}/`}>
             <span class="article-next__teaser">
-            {nextEntry.data.teaser ?? nextEntry.data.description}
-        </span>
-      <span class="article-next__title">{nextEntry.data.title}</span>
-    </a>
-  </nav>
-)}
+              {nextEntry.data.teaser ?? nextEntry.data.description}
+            </span>
+            <span class="article-next__title">
+              {nextEntry.data.title}
+            </span>
+          </a>
+        </nav>
+      )}
     </article>
   </main>
 </BaseLayout>

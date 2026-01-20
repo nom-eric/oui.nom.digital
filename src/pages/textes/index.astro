@@ -3,8 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BrandMark from "../../components/BrandMark.astro";
 import { getCollection } from "astro:content";
 
-const title = "Textes";
-const description = "Textes latéraux. Incomplets par design.";
+const title = "Textes · Essais sur l’identité et les traces numériques";
+const description =
+  "Une série de textes sur l’identité numérique, la lisibilité des traces, la persistance des données et la fatigue de la présence en ligne.";
+
+
+
+const canonical = "/textes/";
 
 const posts = (await getCollection("articles"))
   .filter((p) => !p.data.draft)
@@ -20,7 +25,7 @@ const formatDate = (d) =>
   
 ---
 
-<BaseLayout title={title} description={description} bodyClass="articles-index">
+<BaseLayout title={title} description={description} canonical={canonical} bodyClass="articles-index">
 <section class="hero stack article">
   <header>
     <h1>

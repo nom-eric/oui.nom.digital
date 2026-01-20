@@ -17,7 +17,7 @@ Mais la discrétion n’est pas une disparition. Elle n’est qu’un changement
 
 ## Agir sur la surface
 
-Être discret, c’est agir sur ce que l’on montre. Pas sur ce qui rend possible d’être retrouvé.
+Être discret, c’est agir sur ce que l’on montre. Pas sur ce qui rend possible d’être [retrouvé](/identite-numerique).
 
 On peut se taire. Mais ce qui a déjà été nommé, relié, inscrit continue d’exister comme point d’entrée. Non pas comme souvenir, mais comme possibilité.
 
@@ -39,7 +39,7 @@ La structure ne regarde pas ce que vous montrez. Elle regarde ce à quoi vous ê
 
 Il y a quelque chose de rassurant dans la discrétion. Elle donne l’impression d’un contrôle retrouvé. On choisit ce qui sort. On maîtrise ce qui s’affiche.
 
-Mais ce contrôle concerne l’interface, pas le système.
+Mais ce contrôle concerne l’interface, pas le système. (Pour le mécanisme “contrôle perçu / structure réelle”, voir : [On ne contrôle pas ce que l’on ne voit pas](/textes/controle-vs-vision-1_2/).)
 
 Le système n’a pas besoin de visibilité. Il a besoin de cohérence.
 
@@ -67,7 +67,7 @@ Or, la lisibilité repose moins sur l’accumulation que sur ce qui a déjà ét
 
 La discrétion protège du regard immédiat, pas de la lecture différée.
 
-Ce que vous avez cessé de montrer continue d’exister comme possibilité de repérage. Pas parce que quelqu’un vous observe, mais parce que quelque chose vous situe.
+Ce que vous avez cessé de montrer continue d’exister comme possibilité de [repérage](/empreinte-numerique). Pas parce que quelqu’un vous observe, mais parce que quelque chose vous situe.
 
 On confond souvent protection et invisibilité. Mais l’invisibilité n’existe pas dans un espace structuré.
 
@@ -87,3 +87,5 @@ La vraie protection ne passe pas par la discrétion. Elle passe par la compréhe
 
 Pas pour se défendre.  
 Pour apercevoir où l’on a déjà commencé d’exister.
+
+(Et quand on se tait, la question utile devient : [ce qui reste quand on ne publie plus](/textes/reste-1_3/).)

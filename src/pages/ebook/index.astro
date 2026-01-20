@@ -2,11 +2,15 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BrandMark from "../../components/BrandMark.astro";
 
-const title = "Ebook — Øui";
-const description = "Un cadre éditorial dense. À rouvrir quand il faut décider.";
+const title = "Ebook Øui · Identité numérique, traces et présence en ligne";
+const description =
+  "Un ebook pour explorer l’identité numérique, la persistance des traces et la fatigue de la présence en ligne.";
+
+const canonical = "/ebook/";
+
 ---
 
-<BaseLayout title={title} description={description} bodyClass="ebook">
+<BaseLayout title={title} description={description} canonical={canonical} bodyClass="ebook">
 <section class="hero stack article">
   <header>
     <h1>

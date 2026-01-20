@@ -67,6 +67,8 @@ Ces éléments ne s’effacent pas. Ils deviennent silencieux, mais toujours lis
 Ce qui ne s’actualise plus ne disparaît pas.  
 Cela devient stable.
 
+(Le ressort “interface vs structure” est exactement celui-ci: [On ne contrôle pas ce que l’on ne voit pas](/textes/controle-vs-vision-1_2/).)
+
 ## La trace comme forme durable
 
 La trace n’est pas un résidu.  
@@ -103,6 +105,8 @@ Ce qui a été associé ne se dissocie pas par l’arrêt.
 La publication construit.  
 L’absence conserve.
 
+(Autrement dit: se faire discret n’est pas “se protéger”. C’est [changer la surface](/textes/discretion-vs-protection-1_1/), pas la structure.)
+
 ## Ce qui reste
 
 Ne plus publier n’efface pas la trace.  
@@ -110,3 +114,5 @@ Cela en modifie seulement la surface.
 
 Ce qui persiste n’a plus besoin d’être montré pour exister.  
 Il lui suffit d’avoir été organisé.
+
+Et quand l’absence devient lisible, ce n’est plus seulement une question d’empreinte: c’est aussi une question de coût. Voir: [Fatigue numérique](/fatigue-numerique).

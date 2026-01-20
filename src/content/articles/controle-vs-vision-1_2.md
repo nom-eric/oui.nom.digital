@@ -27,6 +27,8 @@ La structure est une architecture.
 Le filtre s’adapte.  
 L’architecture persiste.
 
+(Le “retrait par discrétion” est souvent une variante de ce contrôle d’interface : [La discrétion n’est pas une protection](/textes/discretion-vs-protection-1_1/).)
+
 ## Ce qui continue sans vous
 
 Ce que vous ne regardez pas ne disparaît pas. Ce que vous ne cliquez pas ne s’efface pas. Ce que vous ne voyez pas continue d’exister comme information.
@@ -47,7 +49,7 @@ Des relations se stabilisent.
 Des proximités se dessinent.  
 Des cohérences se renforcent.
 
-Ce qui importe n’est pas ce que vous voyez, mais ce que la structure relie.
+Ce qui importe n’est pas ce que vous voyez, mais ce que la structure relie. (Cadre: [Identité numérique](/identite-numerique).)
 
 On ne vous observe pas.  
 On vous situe.
@@ -85,6 +87,8 @@ Pas un message.
 Une configuration.
 
 Ce que vous ne cherchez pas à montrer devient malgré tout interprétable, non pas comme récit, mais comme structure.
+
+(Quand cette “configuration” se fige, on bascule dans l’empreinte: [Empreinte numérique](/empreinte-numerique), et dans le concret: [Ce qui reste quand on ne publie plus](/textes/reste-1_3/).)
 
 ## Ce qui ne se contrôle pas
 
