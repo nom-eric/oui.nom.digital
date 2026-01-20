@@ -500,43 +500,37 @@ p {
 }
 
 /* --------------------------------
-   12) Article pages (/methode/[slug]) — “presse”
-   Scoped to bodyClass="article-page"
+   Prose / pages texte — UNIFIÉ (sans scope body.article-page)
+   Objectif : mêmes titres + mêmes “secondes lignes” partout
+   + pas de justify
 --------------------------------- */
-body.article-page .site-main {
-  display: flex;
-  justify-content: flex-start;
-}
 
-/* Fix: articles never inherit full-bleed */
-body.article-page .container.full-bleed {
-  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
-  max-width: var(--container);
-  margin-inline: auto;
-}
-
-body.article-page .article {
+/* Conteneur texte (si tu utilises .article comme wrapper des pages texte) */
+.article {
   width: min(var(--article-width), 100%);
   margin-inline: auto;
 }
 
-body.article-page .article header {
+/* Header texte */
+.article header {
   width: 100%;
   margin: 0;
   text-align: left;
 }
 
-body.article-page .article h1 {
+/* H1 partout identique (pas de mode “article spécial”) */
+.article h1 {
   font-weight: 800;
-  font-size: var(--article-h1);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   letter-spacing: -0.035em;
-  line-height: 1.2;
-  margin: 0 0 1.2rem 0;
+  line-height: 1.12;
+  margin: 0 0 0.6rem 0;
 }
 
-body.article-page .article__desc {
+/* Seconde ligne (desc) = structurante, pas un commentaire */
+.article__desc {
   font-weight: 700;
-  font-size: var(--article-desc);
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin-left: var(--s3);
@@ -546,7 +540,8 @@ body.article-page .article__desc {
   opacity: 0.7;
 }
 
-body.article-page .article__desc::after {
+/* Petite règle sous la desc (optionnelle, mais cohérente Øui) */
+.article__desc::after {
   content: "";
   display: block;
   width: var(--rule-w);
@@ -556,35 +551,39 @@ body.article-page .article__desc::after {
   margin-top: 0.85rem;
 }
 
-body.article-page .article__body {
-  font-size: var(--article-body-size);
-  line-height: var(--article-lh);
+/* Corps texte : même base partout, et surtout PAS de justify */
+.article__body {
+  font-size: var(--body);
+  line-height: var(--lh);
   letter-spacing: 0.004em;
 }
 
-body.article-page .article__body p {
-  margin: 0 0 0.7rem 0;
+/* Paragraphes : rythme régulier */
+.article__body p {
+  margin: 0 0 0.85rem 0;
 }
 
-body.article-page .article__body p,
-body.article-page .article__body li {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: none;
-  -webkit-hyphens: none;
-  overflow-wrap: break-word;
+/* Listes */
+.article__body ul,
+.article__body ol {
+  margin: var(--s3) 0;
+  padding-left: 1.1em;
 }
 
-body.article-page .article__body h2 {
+.article__body li + li {
+  margin-top: 0.45em;
+}
+
+/* Intertitres : cohérents avec ton système global */
+.article__body h2 {
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: var(--h2);
   letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin: 2.4rem 0 0.7rem;
-  text-transform: none;
+  line-height: 1.12;
+  margin: 2.2rem 0 0.7rem;
 }
 
-body.article-page .article__body h2::after {
+.article__body h2::after {
   content: "";
   display: block;
   width: var(--rule-w);
@@ -594,14 +593,15 @@ body.article-page .article__body h2::after {
   margin-top: 0.6rem;
 }
 
-body.article-page .article__body h3 {
+.article__body h3 {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: var(--h3);
   letter-spacing: -0.015em;
-  margin: 1.8rem 0 0.5rem;
+  margin: 1.6rem 0 0.55rem;
 }
 
-body.article-page .article-next {
+/* “Next entry” (si tu l’utilises) */
+.article-next {
   width: 100%;
   margin-top: 1.6rem;
   display: flex;
@@ -612,23 +612,26 @@ body.article-page .article-next {
   text-align: right;
 }
 
-body.article-page .article-next a {
+.article-next a {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.1rem;
-  margin-top: 3rem;
+  margin-top: 2.6rem;
+
   text-align: right;
   max-width: 60ch;
+
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--muted);
   letter-spacing: -0.01em;
   opacity: 0.85;
+
   transition: color 120ms ease, transform 120ms ease;
 }
 
-body.article-page .article-next__teaser {
+.article-next__teaser {
   font-size: 0.8rem;
   font-weight: 450;
   line-height: 1.25;
@@ -636,53 +639,40 @@ body.article-page .article-next__teaser {
   opacity: 0.65;
 }
 
-body.article-page .article-next__title {
+.article-next__title {
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--text);
   opacity: 0.8;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-body.article-page .article-next a:hover {
+.article-next a:hover {
   color: var(--text);
   transform: translateX(2px);
 }
 
-@media (max-width: 820px) {
-  body.article-page .article__body p,
-  body.article-page .article__body li {
-    text-align: left;
-  }
-
-  /* Mobile: prevent horizontal scroll */
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  body.article-page .article__desc {
-    margin-left: 0;
-  }
-
-  body.article-page .article__body {
+/* Responsive : pas de règles “justify” à annuler, donc simple */
+@media (max-width: 80px) {
+  /* Empêche les débo2rdements horizontaux sur contenus longs */
+  .article__body {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 
-  body.article-page .article__body pre {
+  .article__body pre {
     max-width: 100%;
     overflow-x: auto;
   }
 
-  body.article-page .article__body img,
-  body.article-page .article__body video,
-  body.article-page .article__body iframe,
-  body.article-page .article__body svg {
+  .article__body img,
+  .article__body video,
+  .article__body iframe,
+  .article__body svg {
     max-width: 100%;
     height: auto;
   }
