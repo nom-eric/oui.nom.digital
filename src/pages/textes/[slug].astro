@@ -101,9 +101,9 @@ const ogImage = entry.data.ogImage;
 
     <article class="article__body">
       <Content />
-
+      <div margin-top: "var(--s2)"><br /></div>
       {entry.data.silo && (
-        <div class="card" style="margin-top: var(--s1);">
+        <div class="card">
           <h3>Repère</h3>
           <p class="small">
             Lire la page pilier sur{" "}
@@ -138,5 +138,12 @@ const ogImage = entry.data.ogImage;
         </nav>
       )}
     </article>
+    <style>
+    .card h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.2rem 0;
+}
+</style>
   </main>
 </BaseLayout>
