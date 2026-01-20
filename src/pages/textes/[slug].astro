@@ -12,6 +12,12 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+
+// Option A: si une URL “fantôme” arrive ici (ou un draft fuit), on renvoie un 404 propre.
+if (!entry || entry.data?.draft) {
+  return new Response(null, { status: 404 });
+}
+
 const { Content } = await entry.render();
 
 /* -----------------------------
@@ -58,7 +64,8 @@ const seoDescription =
   entry.data.description ??
   "Un texte sur l’identité, les traces et la présence numérique.";
 
-const canonical = new URL(`/textes/${entry.slug}/`, Astro.site).href;
+// Canonical RELATIF, avec trailing slash, BaseLayout va absolutiser + normaliser.
+const canonical = `/textes/${entry.slug}/`;
 
 /* OG / Article meta */
 const publishedDate = getDate(entry);
@@ -94,21 +101,31 @@ const ogImage = entry.data.ogImage;
 
     <article class="article__body">
       <Content />
-    {entry.data.silo && (
+
+      {entry.data.silo && (
         <div class="card" style="margin-top: var(--s5);">
-         <h3>Repère</h3>
-         <p class="small">
-             Lire la page pilier sur{" "}
-             <a href={`/${entry.data.silo === "identite" ? "identite-numerique" : entry.data.silo === "empreinte" ? "empreinte-numerique" : "fatigue-numerique"}`}>
-            {entry.data.silo === "identite"
-             ? "l’identité numérique et la retrouvabilité"
-             : entry.data.silo === "empreinte"
-             ? "l’empreinte numérique et la persistance"
-             : "la fatigue numérique et la pression sociale"}
-            </a>.
-         </p>
+          <h3>Repère</h3>
+          <p class="small">
+            Lire la page pilier sur{" "}
+            <a
+              href={`/${
+                entry.data.silo === "identite"
+                  ? "identite-numerique"
+                  : entry.data.silo === "empreinte"
+                  ? "empreinte-numerique"
+                  : "fatigue-numerique"
+              }`}
+            >
+              {entry.data.silo === "identite"
+                ? "l’identité numérique et la retrouvabilité"
+                : entry.data.silo === "empreinte"
+                ? "l’empreinte numérique et la persistance"
+                : "la fatigue numérique et la pression sociale"}
+            </a>
+            .
+          </p>
         </div>
-        )}
+      )}
 
       {nextEntry && (
         <nav class="article-next" aria-label="Texte suivant">
@@ -116,9 +133,7 @@ const ogImage = entry.data.ogImage;
             <span class="article-next__teaser">
               {nextEntry.data.teaser ?? nextEntry.data.description}
             </span>
-            <span class="article-next__title">
-              {nextEntry.data.title}
-            </span>
+            <span class="article-next__title">{nextEntry.data.title}</span>
           </a>
         </nav>
       )}

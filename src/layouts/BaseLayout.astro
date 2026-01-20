@@ -57,11 +57,22 @@ const safeDescription =
 // Title tag
 const pageTitle = safeTitle === siteName ? siteName : `${safeTitle} · ${siteName}`;
 
-// Canonical robuste
+// Canonical robuste + trailing slash homogène
 const baseForUrls = Astro.site ?? new URL(siteUrl);
-const canonicalUrl = canonical
-  ? new URL(canonical, baseForUrls).href
-  : new URL(currentPath, baseForUrls).href;
+
+const withTrailingSlash = (href: string) => {
+  const u = new URL(href, baseForUrls);
+
+  // Ne pas toucher aux fichiers (assets)
+  const hasExt = /\.[a-z0-9]+$/i.test(u.pathname);
+
+  if (!hasExt && u.pathname !== "/" && !u.pathname.endsWith("/")) {
+    u.pathname += "/";
+  }
+  return u.href;
+};
+
+const canonicalUrl = withTrailingSlash(canonical ? canonical : currentPath);
 
 // OG
 const ogUrl = canonicalUrl;
@@ -161,7 +172,7 @@ const isActive = (href: string) => {
     <slot name="head" />
   </head>
 
-  <body class="article-page">
+  <body class={bodyClass}>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="Aller à l’accueil">

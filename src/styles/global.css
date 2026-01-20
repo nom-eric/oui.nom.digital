@@ -719,3 +719,8 @@ body.article-page .article-next a:hover {
 .mailto-links a:hover {
   color: var(--muted);
 }
+
+.page-404 h1 {
+  letter-spacing: .05em;
+}
+
