@@ -15,5 +15,8 @@
     "astro": "^5.16.8",
     "remark-breaks": "^4.0.0",
     "tailwindcss": "^4.1.18"
+  },
+  "scripts": {
+    "fix:links": "node scripts/fix-internal-links.mjs"
   }
 }
