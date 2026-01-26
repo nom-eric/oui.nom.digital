@@ -3,7 +3,7 @@ title: "Ce qui reste quand on ne publie plus"
 description: "L’absence ne supprime pas la trace. Elle en modifie seulement la surface."
 teaser: "La persistance n’a pas besoin de parole."
 date: 2026-01-22T00:00:00.000Z
-draft: true
+draft: false
 tags: [absence, persistance, traces, structure]
 silo: empreinte
 
