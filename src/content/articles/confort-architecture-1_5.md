@@ -2,8 +2,8 @@
 title: "Le confort est une architecture"
 description: "Ce qui semble faciliter l’usage organise silencieusement la continuité."
 teaser: "Le confort ne supprime pas la structure. Il la rend invisible."
-date: 2026-01-29T18:00:00.000Z
-draft: true
+date: 2026-01-29T17:00:00.000Z
+draft: false
 tags: [confort, structure, continuité, usage]
 silo: identite
 ---
