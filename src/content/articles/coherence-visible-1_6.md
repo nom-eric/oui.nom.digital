@@ -3,7 +3,7 @@ title: "Pourquoi la cohérence rend lisible"
 description: "La lisibilité ne vient pas de ce qui est montré, mais de ce qui se stabilise."
 teaser: "La transparence n’éclaire rien. La cohérence, si."
 date: 2026-02-04T18:00:00.000Z
-draft: true
+draft: false
 tags: [cohérence, lisibilité, structure, trajectoire]
 silo: empreinte
 ---
