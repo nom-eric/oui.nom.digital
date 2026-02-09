@@ -3,7 +3,7 @@ title: "Une présence sans intention"
 description: "On peut exister dans une structure sans avoir jamais voulu y être présent."
 teaser: "L’intention n’est pas nécessaire pour produire une présence."
 date: 2026-02-09T18:00:00.000Z
-draft: true
+draft: false
 tags: [présence, intention, structure, lisibilité]
 silo: identite
 ---
