@@ -3,7 +3,7 @@ title: "Ce qui se construit sans vous"
 description: "Une structure continue de produire des relations même en l’absence d’intervention."
 teaser: "La fabrication ne s’interrompt pas avec le silence."
 date: 2026-02-23T18:00:00.000Z
-draft: true
+draft: false
 tags: [construction, structure, continuité, relations]
 silo: empreinte
 ---
