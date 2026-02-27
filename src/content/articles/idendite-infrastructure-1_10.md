@@ -3,7 +3,7 @@ title: "L’identité comme infrastructure"
 description: "L’identité ne se réduit pas à une expression; elle fonctionne comme un support."
 teaser: "L’identité n’est pas seulement ce qui s’exprime. C’est ce qui permet."
 date: 2026-02-27T18:00:00.000Z
-draft: true
+draft: false
 tags: [identité, infrastructure, structure, continuité]
 silo: identite
 ---
