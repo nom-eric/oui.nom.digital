@@ -3,7 +3,7 @@ title: "L’angle mort n’est pas un oubli"
 description: "Ce que vous ne voyez pas n’est pas un défaut. C’est une condition d’opérabilité."
 teaser: "Toute visibilité suppose une profondeur invisible."
 date: 2026-03-09T18:00:00.000Z
-draft: true
+draft: false
 tags: [angle mort, opérabilité, dissymétrie, structure]
 silo: identite
 ---
