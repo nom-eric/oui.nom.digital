@@ -3,7 +3,7 @@ title: "Exister ailleurs sous une forme stable"
 description: "Une configuration peut circuler sans coïncider entièrement avec l’expérience vécue."
 teaser: "Une version de vous peut tenir sans vous consulter."
 date: 2026-03-12T18:00:00.000Z
-draft: true
+draft: false
 tags: [compression, stabilité, dissociation, identité]
 silo: identite
 ---
