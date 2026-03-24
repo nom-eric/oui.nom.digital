@@ -2,39 +2,39 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BrandMark from "../../components/BrandMark.astro";
 
-const title = "Ebook Øui · Identité numérique, traces et présence en ligne";
+const title = "Øui · Comment on devient lisible";
 const description =
-  "Un ebook pour explorer l’identité numérique, la persistance des traces et la fatigue de la présence en ligne.";
+  "Un essai bref sur l’identité numérique, les traces, la présence en ligne et la fatigue d’exposition.";
 
 const canonical = "/ebook/";
-
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} bodyClass="ebook">
-<section class="hero stack article">
-  <header>
-    <h1>
-      Ebook
-    </h1>
-    <p class="article__desc">
-        Aucun chapitre ne suffit seul.
-        L’ordre compte.
-    </p>
-   </header>
-</section>
-  
-<section class="hero stack">
+  <section class="hero stack article">
+    <header>
+      <p class="kicker">Ebook</p>
+      <h1>
+        <BrandMark prefix="" suffix="ui" ariaLabel="Øui" />
+      </h1>
+      <p class="article__desc">
+        Comment on devient lisible
+      </p>
+      <p class="lede">
+        Un essai sur l’identité numérique, les traces, la présence et la fatigue d’exposition.
+      </p>
+    </header>
+  </section>
 
+  <section class="hero stack">
     <div class="intro-lines intro-lines--indent">
       <p class="intro-line">Un cadre éditorial dense.</p>
       <p class="intro-line">À rouvrir quand il faut décider.</p>
     </div>
   </section>
 
-  <section class="grid" aria-label="Ebook Øui">
-    <!-- Colonne 1 : contenu -->
+  <section class="grid" aria-label="Présentation de l’ebook Øui">
     <div class="col content">
-      <p class="outline-title">Ce que l’ebook traversera :</p>
+      <p class="section-title">Ce que l’ebook traverse</p>
 
       <ul class="moments">
         <li>Être nommé</li>
@@ -49,80 +49,104 @@ const canonical = "/ebook/";
 
       <div class="divider" aria-hidden="true"></div>
 
-      <div class="exit">
-        <p>Il n’y a rien à attendre ici.</p>
+      <div class="body-copy">
         <p>
-          Lorsque l’ebook sera disponible,<br />
-          il le sera sans annonce.
+          <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> n’est pas un guide. Ce n’est pas non plus un manifeste
+          décoratif sur la présence en ligne.
         </p>
-        <p class="link">
-          <a href="/textes/">Continuer à lire les textes</a>
+        <p>
+          C’est un essai bref, construit pour faire apparaître ce que produit le fait
+          d’être visible, repérable, associé, puis peu à peu réduit à des signes
+          lisibles par d’autres.
+        </p>
+        <p>
+          Il ne cherche pas à rassurer. Il cherche à mieux nommer les mécanismes
+          qui organisent l’exposition, l’attente et la fatigue.
         </p>
       </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="link">
+        <a href="/textes/">Continuer à lire les textes</a>
+      </p>
     </div>
 
-    <!-- Colonne 2 : état -->
-    
-    <div class="col state">
-      <p class="state-title">Non disponible.</p>
+    <aside class="col state" aria-label="Informations de publication">
+      <p class="state-title">Parution prochaine.</p>
 
       <p class="state-text">
-        L’ebook Øui est en cours de finalisation.<br />
-        Il ne sera publié que lorsqu’il sera suffisamment fermé.
+        L’ebook <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> est en cours de finalisation.
+        Il sera mis en ligne lorsqu’il sera formellement fermé.
       </p>
 
-      <p class="state-text">
-        Øui n’est pas un contenu à consommer.<br />
-        C’est un cadre à affronter.
-      </p>
-
-      <p class="state-text">
-        Tant que sa forme n’est pas stable,<br />
-        il n’est pas mis à disposition.
-      </p>
+      <div class="meta">
+        <p><strong>Auteur</strong> : Maël Nor</p>
+        <p><strong>Éditeur</strong> : Studio Editorial</p>
+        <p><strong>Format</strong> : PDF</p>
+        <p><strong>Pagination</strong> : 87 pages</p>
+        <p><strong>Prix</strong> : 12,99 €</p>
+        <p><strong>ISBN</strong> : à venir</p>
+      </div>
 
       <div class="divider" aria-hidden="true"></div>
 
       <p class="state-text">
-        C’est ici qu’Øui s’arrête.
+        La page de vente ouvrira ici dès publication.
       </p>
-    </div>
+    </aside>
   </section>
 
   <style>
-    .head { margin-bottom: 1.5rem; }
-    .h1 { margin: 0 0 .5rem; display: grid; gap: .25rem; }
-    .kicker { font-size: .95em; opacity: .7; font-weight: 650; }
-    .name { font-size: 1.35em; font-weight: 750; }
-    .subtitle { margin: 0; opacity: .8; max-width: 70ch; }
+    .kicker{
+      margin: 0 0 .5rem;
+      font-size: .95rem;
+      opacity: .7;
+      font-weight: 650;
+      letter-spacing: .01em;
+    }
 
-    /* Grid */
+    h1{
+      margin: 0;
+    }
+
+    .article__desc{
+      margin: .45rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 650;
+      opacity: .88;
+    }
+
+    .lede{
+      margin: .9rem 0 0;
+      max-width: 62ch;
+      opacity: .82;
+    }
+
     .grid{
       margin-top: 2rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .85fr);
       gap: 2rem;
       align-items: start;
       max-width: 100%;
     }
+
     @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; gap: 1.5rem; }
+      .grid{
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
     }
 
-    .col{ max-width: 70ch; }
-
-    /* Colonne état */
-    .state{
-      border: 1px solid rgba(0,0,0,.12);
-      border-radius: 14px;
-      padding: 1rem;
-      margin-top:var(--s5);
+    .col{
+      max-width: 70ch;
     }
-    .state-title{ margin: 0 0 .5rem; font-weight: 800; }
-    .state-text{ margin: .75rem 0 0; }
 
-    /* Colonne contenu */
-    .outline-title{ margin: 0 0 .75rem; font-weight: 650; }
+    .section-title{
+      margin: 0 0 .8rem;
+      font-weight: 700;
+    }
 
     .moments{
       list-style: none;
@@ -130,12 +154,45 @@ const canonical = "/ebook/";
       margin: 0;
       border-top: 1px solid rgba(0,0,0,.10);
     }
+
     .moments li{
-      padding: .35rem 0;
-      border-bottom: 1px solid rgba(0,0,0,.);
+      padding: .45rem 0;
+      border-bottom: 1px solid rgba(0,0,0,.10);
     }
 
-    .order{ margin-top: 1rem; font-weight: 650; }
+    .body-copy{
+      opacity: .9;
+    }
+
+    .body-copy p{
+      margin: .8rem 0 0;
+    }
+
+    .state{
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      padding: 1rem;
+      margin-top: var(--s5);
+    }
+
+    .state-title{
+      margin: 0 0 .5rem;
+      font-weight: 800;
+    }
+
+    .state-text{
+      margin: .75rem 0 0;
+    }
+
+    .meta{
+      margin-top: 1rem;
+      display: grid;
+      gap: .45rem;
+    }
+
+    .meta p{
+      margin: 0;
+    }
 
     .divider{
       margin: 1.25rem 0;
@@ -143,8 +200,10 @@ const canonical = "/ebook/";
       background: rgba(0,0,0,.10);
     }
 
-    .exit{ opacity: .85; }
-    .exit p{ margin: .5rem 0 0; }
+    .link{
+      margin: 0;
+    }
+
     .link a{
       text-decoration: none;
       font-weight: 650;

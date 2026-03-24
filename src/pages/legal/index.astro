@@ -3,66 +3,108 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BrandMark from "../../components/BrandMark.astro";
 
 const title = "Mentions légales · Øui";
-const description = "Un cadre clair. Un espace ouvert. Rien de plus.";
+const description = "Informations légales relatives à l’édition et à l’hébergement du site Øui.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} noindex={true}>
   <main class="container">
-     <section class="hero stack article">
-     <header>
-        <h1>
-          Mentions légales
-        </h1>
+    <section class="hero stack article">
+      <header>
+        <h1>Mentions légales</h1>
         <p class="article__desc">
-         Ce site est édité à titre indépendant.<br /> 
-        Les informations ci-dessous sont fournies pour transparence.
+          Un cadre clair.<br />
+          Une structure simple.<br />
+          Rien de plus.
         </p>
-     </header>
-     </section>
-     
-     <section class="hero stack">        
-      <div class="intro-lines intro-lines--indent">
-        <p class="intro-line">Un cadre clair.</p>
-        <p class="intro-line">Un espace ouvert.</p>
-        <p class="intro-line">Rien de plus.</p>
-      </div>
-
-      <p class="intro-axis intro-axis--indent">
-       
-      </p>
+      </header>
     </section>
 
     <section class="stack">
       <h2>Éditeur du site</h2>
       <p>
-        Nom du site : <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /><br/>
-        Responsable de la publication : Eric Bruet
+        Le présent site est édité par Eric BRUET, entrepreneur individuel.<br />
+        <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> est une marque éditoriale exploitée par cette entreprise.
       </p>
+      <p>
+        Adresse de domiciliation : 10 rue Pasteur, 73160 Cognin, France<br />
+        Téléphone : 06 60 81 68 39<br />
+        E-mail :
+        <a href="mailto:oui@oui.nom.digital?subject=Legal">oui@oui.nom.digital</a>
+      </p>
+      <p>
+        SIREN : 102 758 554<br />
+        SIRET : 102 758 554 00012<br />
+        Immatriculation au RCS : Chambéry
+      </p>
+
+      <h2>Directeur de la publication</h2>
+      <p>Eric BRUET</p>
 
       <h2>Hébergement</h2>
       <p class="mailto-links">
-        Le site est hébergé par :<br/>
-        Cloudflare, Inc.<br/>
-        101 Townsend St, San Francisco, CA 94107, USA<br/>
-        <a href="https://www.cloudflare.com">https://www.cloudflare.com</a>
+        Cloudflare, Inc.<br />
+        101 Townsend Street<br />
+        San Francisco, CA 94107<br />
+        États-Unis<br />
+        <a
+          href="https://www.cloudflare.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          cloudflare.com
+        </a>
       </p>
 
       <h2>Propriété intellectuelle</h2>
       <p>
-        L’ensemble des contenus présents sur ce site (textes, structure, mise en forme)
-        est protégé par le droit d’auteur.<br/>
-        Toute reproduction ou utilisation sans autorisation est interdite.
+        Sauf mention contraire, l’ensemble des contenus présents sur ce site,
+        notamment les textes, extraits, éléments de structure, visuels,
+        signes distinctifs et éléments graphiques, est protégé par le droit
+        de la propriété intellectuelle.
+      </p>
+      <p>
+        Toute reproduction, représentation, adaptation, diffusion ou exploitation,
+        totale ou partielle, par quelque procédé que ce soit, sans autorisation
+        préalable écrite, est interdite.
+      </p>
+
+      <h2>Vente de l’ebook</h2>
+      <p>
+        Le présent site ne traite pas directement les commandes ni les paiements
+        de l’ebook.
+      </p>
+      <p>
+        Lorsque des liens d’achat sont proposés, la commande, le paiement,
+        la délivrance du fichier et les éventuelles demandes liées à la transaction
+        sont traités via la plateforme Gumroad.
+      </p>
+      <p>
+        Les conditions applicables au moment de la commande sont celles de la
+        plateforme utilisée.
       </p>
 
       <h2>Responsabilité</h2>
       <p>
-        Les informations publiées sont fournies à titre informatif.<br/>
-        L’éditeur ne saurait être tenu responsable de l’usage qui en est fait.
+        Les informations publiées sur ce site sont fournies à titre informatif.
+        L’éditeur s’efforce d’en assurer l’exactitude et la mise à jour,
+        sans pouvoir garantir l’absence d’erreurs, d’omissions ou d’indisponibilité.
+      </p>
+      <p>
+        L’éditeur ne pourra être tenu responsable des dommages directs ou indirects
+        résultant de l’accès au site, de son utilisation ou de l’impossibilité
+        d’y accéder.
+      </p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Les informations relatives au traitement des données personnelles sont
+        précisées dans la politique de confidentialité accessible sur le site.
       </p>
 
       <h2 id="contact">Contact</h2>
       <p class="mailto-links">
-        Contact : <a href="mailto:oui@oui.nom.digital?subject=Legal">oui@oui.nom.digital</a>
+        Pour toute demande :
+        <a href="mailto:oui@oui.nom.digital?subject=Legal">oui@oui.nom.digital</a>
       </p>
     </section>
   </main>

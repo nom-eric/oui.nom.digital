@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandMark from "../../components/BrandMark.astro";
+
+const title = "Politique de confidentialité · Øui";
+const description = "Informations relatives au traitement des données personnelles sur le site Øui.";
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <main class="container">
+    <section class="hero stack article">
+      <header>
+        <h1>Politique de confidentialité</h1>
+        <p class="article__desc">
+          Peu de collecte.<br />
+          Pas de théâtre juridique.<br />
+          Juste ce qui existe réellement.
+        </p>
+      </header>
+    </section>
+
+    <section class="stack">
+      <h2>Responsable du traitement</h2>
+      <p>
+        Le présent site est exploité par Eric BRUET, entrepreneur individuel.<br />
+        <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> est une marque éditoriale exploitée par cette entreprise.
+      </p>
+      <p>
+        Pour toute question relative aux données personnelles :
+        <a href="mailto:oui@oui.nom.digital?subject=Confidentialite">oui@oui.nom.digital</a>
+      </p>
+
+      <h2>Données traitées</h2>
+      <p>
+        Ce site ne met pas en œuvre de collecte volontaire de données personnelles,
+        sauf lorsque vous prenez contact par courrier électronique.
+      </p>
+      <p>
+        Dans ce cadre, peuvent être traités les éléments que vous transmettez
+        volontairement, notamment votre adresse e-mail, le contenu de votre message
+        et toute information communiquée spontanément.
+      </p>
+      <p>
+        Des données techniques de navigation peuvent également être traitées par les
+        services nécessaires à l’hébergement, à la sécurité, au bon fonctionnement
+        et à l’observation générale du trafic du site.
+      </p>
+
+      <h2>Finalités</h2>
+      <p>Les données éventuellement traitées le sont pour :</p>
+      <ul>
+        <li>répondre aux messages reçus ;</li>
+        <li>assurer le fonctionnement, la sécurité et la stabilité du site ;</li>
+        <li>disposer d’informations globales sur la visibilité et l’usage du site.</li>
+      </ul>
+
+      <h2>Base légale</h2>
+      <p>
+        Les traitements reposent, selon les cas, sur l’intérêt légitime de répondre
+        aux messages reçus, de sécuriser le site et d’en assurer le fonctionnement.
+      </p>
+
+      <h2>Destinataires</h2>
+      <p>
+        Les données sont destinées à Eric BRUET, entrepreneur individuel,
+        ainsi qu’aux seuls prestataires techniques strictement nécessaires au
+        fonctionnement du site.
+      </p>
+      <p>
+        Le site s’appuie notamment sur des services fournis par Cloudflare pour
+        l’hébergement, la performance et la sécurité.
+      </p>
+
+      <h2>Vente de l’ebook</h2>
+      <p>
+        Le présent site ne traite pas directement les commandes ni les paiements
+        de l’ebook.
+      </p>
+      <p>
+        Lorsque des liens d’achat sont proposés, la commande, le paiement,
+        la délivrance du fichier et le traitement des données liés à la transaction
+        sont assurés par la plateforme Gumroad, selon ses propres conditions
+        et sa propre politique de confidentialité.
+      </p>
+
+      <h2>Durée de conservation</h2>
+      <p>
+        Les données transmises volontairement sont conservées pendant la durée
+        nécessaire au traitement de la demande et au suivi des échanges,
+        sous réserve des obligations légales applicables.
+      </p>
+
+      <h2>Vos droits</h2>
+      <p>
+        Conformément à la réglementation applicable, vous pouvez demander l’accès,
+        la rectification ou l’effacement de vos données, ainsi qu’exercer votre
+        droit d’opposition lorsque cela est applicable.
+      </p>
+      <p>
+        Pour exercer ces droits :
+        <a href="mailto:oui@oui.nom.digital?subject=Confidentialite">oui@oui.nom.digital</a>
+      </p>
+      <p>
+        En cas de difficulté non résolue, vous pouvez également introduire une
+        réclamation auprès de la CNIL.
+      </p>
+
+      <h2>Cookies et services techniques</h2>
+      <p>
+        Ce site peut utiliser des services techniques nécessaires à son hébergement,
+        à sa sécurisation et à son bon fonctionnement.
+      </p>
+      <p>
+        Si des outils complémentaires impliquant une collecte plus large ou un dépôt
+        de traceurs soumis au consentement sont ajoutés ultérieurement, la présente
+        politique sera mise à jour en conséquence.
+      </p>
+
+      <h2 id="contact">Contact</h2>
+      <p class="mailto-links">
+        Contact :
+        <a href="mailto:oui@oui.nom.digital?subject=Confidentialite">oui@oui.nom.digital</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>
