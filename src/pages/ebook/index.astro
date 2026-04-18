@@ -4,101 +4,116 @@ import BrandMark from "../../components/BrandMark.astro";
 
 const title = "Øui · Comment on devient lisible";
 const description =
-  "Un essai bref sur l’identité numérique, les traces, la présence en ligne et la fatigue d’exposition.";
+  "Un essai PDF bref et structuré sur la manière dont une présence numérique devient lisible, stable et calculable.";
 
 const canonical = "/ebook/";
+const lemonUrl =
+  "https://studioeditorial.lemonsqueezy.com/checkout/buy/38a4dda1-d127-4d58-8c12-2964162f058c?embed=1&logo=0";
+const coverUrl = "/couv.png";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} bodyClass="ebook">
-  <section class="hero stack article">
-    <header>
-      <p class="kicker">Ebook</p>
-      <h1>
-        <BrandMark prefix="" suffix="ui" ariaLabel="Øui" />
-      </h1>
-      <p class="article__desc">
-        Comment on devient lisible
-      </p>
-      <p class="lede">
-        Un essai sur l’identité numérique, les traces, la présence et la fatigue d’exposition.
-      </p>
-    </header>
-  </section>
+  <section class="ebook-hero">
+    <div class="ebook-hero__grid">
+      <div class="ebook-hero__content article">
+        <header>
+          <h1>
+            <BrandMark prefix="" suffix="ui" ariaLabel="Øui" />
+          </h1>
 
-  <section class="hero stack">
-    <div class="intro-lines intro-lines--indent">
-      <p class="intro-line">Un cadre éditorial dense.</p>
-      <p class="intro-line">À rouvrir quand il faut décider.</p>
+          <p class="article__desc">Comment on devient lisible</p>
+
+          <p class="lede">
+            Un essai sur les gestes ordinaires par lesquels une présence numérique devient
+            stable, retrouvable, associable, puis calculable.
+          </p>
+
+          <div class="cta-row cta-row--left hero-cta-row">
+            <a class="btn primary lemonsqueezy-button" href={lemonUrl}>
+              Acheter l’ebook — 12,99 €
+            </a>
+            <a class="btn" href="#details">
+              Voir les détails
+            </a>
+          </div>
+        </header>
+
+        <div class="intro-lines intro-lines--indent">
+          <p class="intro-line">Un essai bref, dense et structuré.</p>
+          <p class="intro-line">Ni manuel de protection, ni discours spectaculaire.</p>
+          <p class="intro-line">Un texte pour comprendre avant d’agir.</p>
+        </div>
+      </div>
+
+      <aside class="ebook-cover card">
+        <img
+          src={coverUrl}
+          alt="Couverture de Øui — Comment on devient lisible, par Maël Nor"
+          loading="eager"
+        />
+      </aside>
     </div>
   </section>
 
-  <section class="grid" aria-label="Présentation de l’ebook Øui">
-    <div class="col content">
-      <p class="section-title">Ce que l’ebook traverse</p>
+  <section class="grid-2 ebook-grid" id="details" aria-label="Présentation de l’ebook Øui">
+    <div class="card ebook-main">
+      <p class="section-title">Pourquoi lire Øui</p>
 
-      <ul class="moments">
-        <li>Être nommé</li>
-        <li>Relier</li>
-        <li>Laisser une trace</li>
-        <li>Devenir retrouvable</li>
-        <li>Être associé</li>
-        <li>Être attendu</li>
-        <li>Se retirer</li>
-        <li>Voir l’impact échapper à l’intention</li>
+      <p>
+        <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> ne traite pas la visibilité
+        comme un thème abstrait. Le livre suit les seuils par lesquels une présence vécue
+        devient une présence stable, lisible et exploitable.
+      </p>
+
+      <p>
+        Créer un compte. Relier des services. Laisser une trace. Devenir retrouvable.
+        Être associé. Être anticipé. Se retirer. Être lu par des systèmes.
+      </p>
+
+      <ul class="list">
+        <li>un essai bref, dense et structuré ;</li>
+        <li>un cadre pour comprendre avant d’agir ;</li>
+        <li>un texte pour celles et ceux que les discours simplistes sur le numérique fatiguent.</li>
       </ul>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <div class="body-copy">
-        <p>
-          <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> n’est pas un guide. Ce n’est pas non plus un manifeste
-          décoratif sur la présence en ligne.
-        </p>
-        <p>
-          C’est un essai bref, construit pour faire apparaître ce que produit le fait
-          d’être visible, repérable, associé, puis peu à peu réduit à des signes
-          lisibles par d’autres.
-        </p>
-        <p>
-          Il ne cherche pas à rassurer. Il cherche à mieux nommer les mécanismes
-          qui organisent l’exposition, l’attente et la fatigue.
-        </p>
-      </div>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <p class="link">
-        <a href="/textes/">Continuer à lire les textes</a>
-      </p>
     </div>
 
-    <aside class="col state" aria-label="Informations de publication">
-      <p class="state-title">Parution prochaine.</p>
+    <aside class="card ebook-side">
+      <p class="section-title">Acheter l’ebook</p>
 
-      <p class="state-text">
-        L’ebook <BrandMark prefix="" suffix="ui" ariaLabel="Øui" /> est en cours de finalisation.
-        Il sera mis en ligne lorsqu’il sera formellement fermé.
-      </p>
-
-      <div class="meta">
-        <p><strong>Auteur</strong> : Maël Nor</p>
-        <p><strong>Éditeur</strong> : Studio Editorial</p>
-        <p><strong>Format</strong> : PDF</p>
-        <p><strong>Pagination</strong> : 87 pages</p>
-        <p><strong>Prix</strong> : 12,99 €</p>
-        <p><strong>ISBN</strong> : à venir</p>
+      <div class="meta-list">
+        <p><strong>Format</strong> <span>PDF</span></p>
+        <p><strong>Pagination</strong> <span>96 pages</span></p>
+        <p><strong>Auteur</strong> <span>Maël Nor</span></p>
+        <p><strong>Éditeur</strong> <span>Studio Editorial</span></p>
+        <p><strong>ISBN</strong> <span>979-10-085480-0-0</span></p>
+        <p><strong>Prix</strong> <span>12,99 €</span></p>
       </div>
 
-      <div class="divider" aria-hidden="true"></div>
-
-      <p class="state-text">
-        La page de vente ouvrira ici dès publication.
+      <p class="small note">
+        Téléchargement immédiat après achat via Lemon Squeezy.
       </p>
     </aside>
   </section>
 
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
   <style>
-    .kicker{
+    .ebook-hero {
+      margin-bottom: var(--s6);
+    }
+
+    .ebook-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 380px);
+      gap: var(--s5);
+      align-items: start;
+    }
+
+    .ebook-hero__content {
+      width: 100%;
+    }
+
+    .kicker {
       margin: 0 0 .5rem;
       font-size: .95rem;
       opacity: .7;
@@ -106,108 +121,95 @@ const canonical = "/ebook/";
       letter-spacing: .01em;
     }
 
-    h1{
-      margin: 0;
-    }
-
-    .article__desc{
-      margin: .45rem 0 0;
-      font-size: 1.05rem;
-      font-weight: 650;
+    .lede {
+      max-width: 62ch;
       opacity: .88;
     }
 
-    .lede{
-      margin: .9rem 0 0;
-      max-width: 62ch;
+    .hero-cta-row {
+      margin-top: var(--s4);
+    }
+
+    .proof {
+      margin-top: var(--s3);
+    }
+
+    .ebook-cover {
+      padding: var(--s2);
+      background: var(--surface);
+      position: sticky;
+      top: 84px;
+    }
+
+    .ebook-cover img {
+      display: block;
+      width: 100%;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .ebook-grid {
+      align-items: start;
+      margin-top: 0;
+    }
+
+    .ebook-main,
+    .ebook-side {
+      background: var(--surface);
+    }
+
+    .ebook-main {
+      gap: var(--s3);
+    }
+
+    .ebook-side {
+      position: sticky;
+      top: 84px;
+      gap: var(--s3);
+    }
+
+    .section-title {
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: .55rem;
+    }
+
+    .meta-list p {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s3);
+      padding-bottom: .55rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta-list span {
+      text-align: right;
+    }
+
+    .note {
       opacity: .82;
     }
 
-    .grid{
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .85fr);
-      gap: 2rem;
-      align-items: start;
-      max-width: 100%;
-    }
-
-    @media (max-width: 900px){
-      .grid{
+    @media (max-width: 900px) {
+      .ebook-hero__grid,
+      .ebook-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
       }
-    }
 
-    .col{
-      max-width: 70ch;
-    }
+      .ebook-cover,
+      .ebook-side {
+        position: static;
+        top: auto;
+      }
 
-    .section-title{
-      margin: 0 0 .8rem;
-      font-weight: 700;
-    }
-
-    .moments{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-top: 1px solid rgba(0,0,0,.10);
-    }
-
-    .moments li{
-      padding: .45rem 0;
-      border-bottom: 1px solid rgba(0,0,0,.10);
-    }
-
-    .body-copy{
-      opacity: .9;
-    }
-
-    .body-copy p{
-      margin: .8rem 0 0;
-    }
-
-    .state{
-      border: 1px solid rgba(0,0,0,.12);
-      border-radius: 14px;
-      padding: 1rem;
-      margin-top: var(--s5);
-    }
-
-    .state-title{
-      margin: 0 0 .5rem;
-      font-weight: 800;
-    }
-
-    .state-text{
-      margin: .75rem 0 0;
-    }
-
-    .meta{
-      margin-top: 1rem;
-      display: grid;
-      gap: .45rem;
-    }
-
-    .meta p{
-      margin: 0;
-    }
-
-    .divider{
-      margin: 1.25rem 0;
-      height: 1px;
-      background: rgba(0,0,0,.10);
-    }
-
-    .link{
-      margin: 0;
-    }
-
-    .link a{
-      text-decoration: none;
-      font-weight: 650;
-      border-bottom: 1px solid currentColor;
+      .ebook-cover {
+        max-width: 420px;
+      }
     }
   </style>
 </BaseLayout>

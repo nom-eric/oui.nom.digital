@@ -10,10 +10,10 @@
     "fix:links": "node scripts/fix-internal-links.mjs"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.15",
+    "astro": "^6.1.7",
     "npm": "^11.12.0",
     "remark-breaks": "^4.0.0",
     "tailwindcss": "^4.1.18"
