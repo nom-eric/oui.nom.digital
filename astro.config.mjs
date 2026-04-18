@@ -7,10 +7,13 @@ import remarkTrailingSlashInternalLinks from "./src/utils/remark-trailing-slash.
 export default defineConfig({
   site: "https://oui.nom.digital",
 
+  legacy: {
+    collectionsBackwardsCompat: true,
+  },
+
   integrations: [
     sitemap({
       filter: (page) => {
-        // Exclut les pages qui contiennent "/textes/" ET sont en draft
         if (page.includes("/textes/")) {
           return !page.includes("draft=true");
         }

@@ -13,25 +13,18 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 
-// Option A: si une URL “fantôme” arrive ici (ou un draft fuit), on renvoie un 404 propre.
 if (!entry || entry.data?.draft) {
   return new Response(null, { status: 404 });
 }
 
 const { Content } = await entry.render();
 
-/* -----------------------------
-   Date helpers (robustes)
------------------------------- */
 const getDate = (e) => e.data.date ?? e.data.pubDate;
 const getTime = (e) => {
   const d = getDate(e);
   return d?.getTime?.() ?? (d ? +new Date(d) : 0);
 };
 
-/* -----------------------------
-   Next article (chronologique)
------------------------------- */
 const all = await getCollection("articles");
 const published = all.filter((e) => !e.data.draft);
 
@@ -45,9 +38,6 @@ const sorted = [...published].sort((a, b) => {
 const idx = sorted.findIndex((e) => e.slug === entry.slug);
 const nextEntry = idx !== -1 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
 
-/* -----------------------------
-   SEO logic (clean + lisible)
------------------------------- */
 const siloLabel = {
   identite: "Identité numérique",
   empreinte: "Empreinte numérique",
@@ -64,35 +54,32 @@ const seoDescription =
   entry.data.description ??
   "Un texte sur l’identité, les traces et la présence numérique.";
 
-// Canonical RELATIF, avec trailing slash, BaseLayout va absolutiser + normaliser.
 const canonical = `/textes/${entry.slug}/`;
 
-/* OG / Article meta */
 const publishedDate = getDate(entry);
 const publishedISO = publishedDate?.toISOString?.();
 const updatedISO = entry.data.updated?.toISOString?.();
-const author = entry.data.author ?? "Eric Bruet";
+const author = entry.data.author ?? "Øui";
 const tags = entry.data.tags ?? [];
 const ogImage = entry.data.ogImage;
 
 const repereSlug =
-    entry.data.silo === "identite"
+  entry.data.silo === "identite"
     ? "identite-numerique"
     : entry.data.silo === "empreinte"
-    ? "empreinte-numerique"
-    : entry.data.silo === "fatigue"
-    ? "fatigue-numerique"
-    : null;
-    
+      ? "empreinte-numerique"
+      : entry.data.silo === "fatigue"
+        ? "fatigue-numerique"
+        : null;
+
 const repereLabel =
-    entry.data.silo === "identite"
+  entry.data.silo === "identite"
     ? "l’identité numérique et la retrouvabilité"
     : entry.data.silo === "empreinte"
-    ? "l’empreinte numérique et la persistance"
-    : entry.data.silo === "fatigue"
-    ? "la fatigue numérique et la pression sociale"
-    : null;
-    
+      ? "l’empreinte numérique et la persistance"
+      : entry.data.silo === "fatigue"
+        ? "la fatigue numérique et la pression sociale"
+        : null;
 ---
 
 <BaseLayout
@@ -120,16 +107,16 @@ const repereLabel =
 
     <article class="article__body">
       <Content />
-      <div margin-top: "var(--s2)"><br /></div>
-         {repereSlug && repereLabel && (
-         <div class="card">
-            <h3>Repère</h3>
-           <p class="small">
+
+      {repereSlug && repereLabel && (
+        <div class="card article__repere">
+          <h3>Repère</h3>
+          <p class="small">
             Lire la page pilier sur{" "}
-             <a href={`/${repereSlug}/`}>{repereLabel}</a>.
-           </p>
-         </div>
-        )}
+            <a href={`/${repereSlug}/`}>{repereLabel}</a>.
+          </p>
+        </div>
+      )}
 
       {nextEntry && (
         <nav class="article-next" aria-label="Texte suivant">
@@ -142,12 +129,17 @@ const repereLabel =
         </nav>
       )}
     </article>
-    <style>
-    .card h3 {
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-  margin: 0 0 0.2rem 0;
-}
-</style>
   </main>
+
+  <style>
+    .article__repere {
+      margin-top: var(--s2);
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.2rem 0;
+    }
+  </style>
 </BaseLayout>
