@@ -8,6 +8,8 @@ const description =
 
 const canonical = "/textes/";
 
+const routeKey = (entry) => entry.slug ?? entry.id;
+
 const getDate = (entry) => entry.data.date ?? entry.data.pubDate;
 const getTime = (entry) => {
   const d = getDate(entry);
@@ -20,7 +22,7 @@ const posts = (await getCollection("articles"))
     const ad = getTime(a);
     const bd = getTime(b);
     if (ad !== bd) return ad - bd;
-    return a.slug.localeCompare(b.slug);
+    return routeKey(a).localeCompare(routeKey(b));
   });
 
 const formatDate = (d) =>
@@ -62,7 +64,7 @@ const formatDate = (d) =>
 
         return (
           <li>
-            <a class="item" href={`/textes/${post.slug}/`}>
+            <a class="item" href={`/textes/${routeKey(post)}/`}>
               <div class="item-main">
                 <span class="item-title">{post.data.title}</span>
                 {teaser && <span class="item-desc">{teaser}</span>}

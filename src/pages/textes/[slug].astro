@@ -1,14 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const entries = await getCollection("articles", ({ data }) => !data.draft);
 
-  return entries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return entries.map((entry) => {
+    const slug = entry.slug ?? entry.id;
+
+    return {
+      params: { slug },
+      props: { entry },
+    };
+  });
 }
 
 const { entry } = Astro.props;
@@ -17,13 +21,15 @@ if (!entry || entry.data?.draft) {
   return new Response(null, { status: 404 });
 }
 
-const { Content } = await entry.render();
+const currentKey = entry.slug ?? entry.id;
+const { Content } = await render(entry);
 
 const getDate = (e) => e.data.date ?? e.data.pubDate;
 const getTime = (e) => {
   const d = getDate(e);
   return d?.getTime?.() ?? (d ? +new Date(d) : 0);
 };
+const getKey = (e) => e.slug ?? e.id;
 
 const all = await getCollection("articles");
 const published = all.filter((e) => !e.data.draft);
@@ -32,10 +38,10 @@ const sorted = [...published].sort((a, b) => {
   const ad = getTime(a);
   const bd = getTime(b);
   if (ad !== bd) return ad - bd;
-  return a.slug.localeCompare(b.slug);
+  return getKey(a).localeCompare(getKey(b));
 });
 
-const idx = sorted.findIndex((e) => e.slug === entry.slug);
+const idx = sorted.findIndex((e) => getKey(e) === currentKey);
 const nextEntry = idx !== -1 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
 
 const siloLabel = {
@@ -54,7 +60,7 @@ const seoDescription =
   entry.data.description ??
   "Un texte sur l’identité, les traces et la présence numérique.";
 
-const canonical = `/textes/${entry.slug}/`;
+const canonical = `/textes/${currentKey}/`;
 
 const publishedDate = getDate(entry);
 const publishedISO = publishedDate?.toISOString?.();
@@ -120,7 +126,7 @@ const repereLabel =
 
       {nextEntry && (
         <nav class="article-next" aria-label="Texte suivant">
-          <a href={`/textes/${nextEntry.slug}/`}>
+          <a href={`/textes/${getKey(nextEntry)}/`}>
             <span class="article-next__teaser">
               {nextEntry.data.teaser ?? nextEntry.data.description}
             </span>
